@@ -1,4 +1,4 @@
-package indi.mat.work.android.ui.notifications;
+package indi.mat.work.android.ui.slideshow;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,24 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import indi.mat.work.android.databinding.FragmentNotificationsBinding;
+import indi.mat.work.android.R;
+import indi.mat.work.android.databinding.FragmentSlideshowBinding;
 
-public class NotificationsFragment extends Fragment {
+public class SlideshowFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private SlideshowViewModel slideshowViewModel;
+    private FragmentSlideshowBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        slideshowViewModel =
+                new ViewModelProvider(this).get(SlideshowViewModel.class);
 
-
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textSlideshow;
+        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
