@@ -21,6 +21,7 @@
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_gallery.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_home.xml" value="0.2957427536231884" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_notifications.xml" value="0.36614583333333334" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_slide_task.xml" value="0.25226449275362317" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_slideshow.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/nav_header_home.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/menu/activity_main_drawer.xml" value="0.36614583333333334" />
@@ -37,5 +38,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25226449275362317" />
+      </ProjectState>
+    </option>
   </component>
 </project>
