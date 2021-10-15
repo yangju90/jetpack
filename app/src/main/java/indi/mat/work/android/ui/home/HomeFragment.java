@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,6 +28,8 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        Button button = getActivity().findViewById(R.id.top_bar_button);
+        button.setVisibility(View.GONE);
 
         final TextView textView = binding.editTextTextPersonName;
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

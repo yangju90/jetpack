@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -26,19 +28,15 @@ public class SlideshowFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+                new ViewModelProvider(getActivity()).get(SlideshowViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_slideshow, container, false);
+        binding.setSlideShow(slideshowViewModel);
+        binding.setLifecycleOwner(getActivity());
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+        getActivity().findViewById(R.id.top_bar_button).setVisibility(View.VISIBLE);
+
+        return binding.getRoot();
     }
 
     @Override
@@ -48,6 +46,7 @@ public class SlideshowFragment extends Fragment {
             NavController controller = Navigation.findNavController(view);
             controller.navigate(R.id.action_nav_slideshow_to_nav_slideTask);
         });
+
         super.onActivityCreated(savedInstanceState);
     }
 

@@ -3,7 +3,10 @@ package indi.mat.work.android.ui.slideshow;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -11,8 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import indi.mat.work.android.R;
+import indi.mat.work.android.databinding.FragmentSlideTaskBinding;
+import indi.mat.work.android.databinding.FragmentSlideshowBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +26,11 @@ import indi.mat.work.android.R;
  * create an instance of this fragment.
  */
 public class SlideTaskFragment extends Fragment {
+
+
+    private SlideshowViewModel slideshowViewModel;
+    private FragmentSlideTaskBinding binding;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,19 +75,25 @@ public class SlideTaskFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_slide_task, container, false);
+        slideshowViewModel = new ViewModelProvider(getActivity()).get(SlideshowViewModel.class);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_slide_task, container, false);
+        binding.setSlideShow(slideshowViewModel);
+        binding.setLifecycleOwner(getActivity());
+
+        return binding.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        Button button = getView().findViewById(R.id.button_1);
-        button.setOnClickListener((View view) ->{
+        getView().findViewById(R.id.button_1).setOnClickListener((View view) ->{
+            slideshowViewModel.setmText("this is Task Edit");
             NavController controller = Navigation.findNavController(view);
             controller.navigate(R.id.action_nav_slideTask_to_nav_slideItem);
         });
+
+        getActivity().findViewById(R.id.top_bar_button).setVisibility(View.GONE);
+
         super.onActivityCreated(savedInstanceState);
     }
-
-
 
 }

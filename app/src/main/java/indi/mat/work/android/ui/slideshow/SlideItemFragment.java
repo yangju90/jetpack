@@ -2,13 +2,22 @@ package indi.mat.work.android.ui.slideshow;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import indi.mat.work.android.R;
+import indi.mat.work.android.databinding.FragmentSlideItemBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +25,10 @@ import indi.mat.work.android.R;
  * create an instance of this fragment.
  */
 public class SlideItemFragment extends Fragment {
+
+    private SlideshowViewModel slideshowViewModel;
+    private FragmentSlideItemBinding binding;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +74,21 @@ public class SlideItemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_slide_item, container, false);
+        slideshowViewModel = new ViewModelProvider(getActivity()).get(SlideshowViewModel.class);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_slide_item, container, false);
+        binding.setSlideShow(slideshowViewModel);
+        binding.setLifecycleOwner(getActivity());
+
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        binding.button1.setOnClickListener((View view)->{
+            String text = ((EditText)binding.editTextTextPersonName3).getText().toString().trim();
+            if(text.length() == 0) return;
+            slideshowViewModel.setmText(text);
+        });
     }
 }

@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/work/android/jectback/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.38229166666666664" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_baseline_inbox_24.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.38229166666666664" />
@@ -21,10 +23,12 @@
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_gallery.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_home.xml" value="0.2957427536231884" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_notifications.xml" value="0.36614583333333334" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_slide_item.xml" value="0.3614583333333333" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_slide_task.xml" value="0.25226449275362317" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/fragment_slideshow.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/nav_header_home.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/menu/activity_main_drawer.xml" value="0.36614583333333334" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/menu/activity_main_drawer_menu.xml" value="0.22083333333333333" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/menu/bottom_nav_menu.xml" value="0.9436893203883495" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/menu/home.xml" value="0.36614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/menu/menu_activity_main_drawer.xml" value="0.36614583333333334" />
