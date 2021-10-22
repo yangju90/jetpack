@@ -7,3 +7,6 @@ https://blog.csdn.net/zly921112/article/details/51056874
 
 # RxJava
 https://blog.csdn.net/xx326664162/article/details/51967967
+
+# Android内存泄漏
+https://www.jianshu.com/p/c59e68c9f581?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
