@@ -14,3 +14,7 @@ https://www.jianshu.com/p/c59e68c9f581?utm_campaign=maleskine&utm_content=note&u
 
 # Retrofit
 https://www.jianshu.com/p/bf884248cb37/
+
+# DilalogFragment
+https://www.jianshu.com/p/f14e0f3a3758
+
