@@ -1,3 +1,9 @@
+package indi.mat.work.android.model;
+
+import java.util.List;
+
+import indi.mat.work.android.model.base.BaseModel;
+
 public class User extends BaseModel {
 
     private String employeeID;
@@ -12,11 +18,10 @@ public class User extends BaseModel {
     private String wh;
     private String iconText;
 
-    private Warehouse warehouse;
 
     public User(){}
 
-    public User(String employeeID, String nickName, String userID, String userName, String token, List<String> whList, String appID, String wh,Warehouse warehouse) {
+    public User(String employeeID, String nickName, String userID, String userName, String token, List<String> whList, String appID, String wh) {
         this.employeeID = employeeID;
         this.nickName = nickName;
         this.userID = userID;
@@ -25,7 +30,6 @@ public class User extends BaseModel {
         this.whList = whList;
         this.appID = appID;
         this.wh = wh;
-        this.warehouse = warehouse;
     }
 
     public String getUserId() {
@@ -46,14 +50,6 @@ public class User extends BaseModel {
 
     public String getNickName() {
         return nickName;
-    }
-
-    public Warehouse getWarehouse() {
-        return warehouse;
-    }
-
-    public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
     }
 
     public void setNickName(String nickName) {
@@ -128,7 +124,7 @@ public class User extends BaseModel {
     }
 
     public User getUser(){
-        User user = new User(employeeID, nickName, userID, userName, token, whList, appID, wh,warehouse);
+        User user = new User(employeeID, nickName, userID, userName, token, whList, appID, wh);
         user.setDisplayName(nickName);
         user.setIconText(nickName);
         return user;

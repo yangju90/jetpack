@@ -1,3 +1,11 @@
+package indi.mat.work.android;
+
+import android.app.Application;
+import android.content.Context;
+
+import indi.mat.work.android.model.User;
+import indi.mat.work.android.util.CrashHandler;
+
 public class MainApplication extends Application {
     private static Context context;
     private static User user;

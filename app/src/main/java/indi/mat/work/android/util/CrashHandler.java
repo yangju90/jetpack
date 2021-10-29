@@ -1,3 +1,22 @@
+package indi.mat.work.android.util;
+
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Looper;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.lang.reflect.Field;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
+
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     public static final String TAG = "CrashHandler";
@@ -31,7 +50,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
-            LogUtil.e(TAG, "error interrupter !");
+            Log.e(TAG, "error interrupter !");
         }
         ActivityCollector.finishAll();
         mDefaultHandler.uncaughtException(thread, ex);
@@ -52,7 +71,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         }.start();
         collectDeviceInfo(mContext);
         String errorInfo = crashInfoToString(ex);
-        LogUtil.e(TAG, errorInfo);
+        Log.e(TAG, errorInfo);
         return true;
     }
 
@@ -68,16 +87,16 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 infos.put("versionCode", versionCode);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            LogUtil.e(TAG, "an error occured when collect package info" + crashInfoToString(e));
+            Log.e(TAG, "an error occured when collect package info" + crashInfoToString(e));
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
             try {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
-                LogUtil.e(TAG, field.getName() + " : " + field.get(null));
+                Log.e(TAG, field.getName() + " : " + field.get(null));
             } catch (Exception e) {
-                LogUtil.e(TAG, "an error occured when collect crash info" + crashInfoToString(e));
+                Log.e(TAG, "an error occured when collect crash info" + crashInfoToString(e));
             }
         }
     }
