@@ -1,3 +1,5 @@
+package indi.mat.work.android.util;
+
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -10,6 +12,8 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
+
+import indi.mat.work.android.MainApplication;
 
 public class DeviceUtil {
 
@@ -40,7 +44,7 @@ public class DeviceUtil {
 
             } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {
                 //当前使用无线网络
-                WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
                 WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                 //调用方法将int转换为地址字符串
                 String ipAddress = intIP2StringIP(wifiInfo.getIpAddress());//得到IPV4地址
