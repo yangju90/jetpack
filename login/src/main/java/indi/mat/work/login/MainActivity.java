@@ -13,7 +13,7 @@ import indi.mat.work.login.attr.ToolBarInfo;
 import indi.mat.work.login.databinding.ActivityMainBinding;
 import indi.mat.work.login.ui.login.LoginFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationHost {
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
@@ -35,12 +35,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
         setSupportActionBar(binding.appBar);
         setObserver();
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new LoginFragment())
-                    .commit();
-        }
     }
 
     private void setObserver() {
@@ -50,15 +44,5 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         });
     }
 
-    public void navigateTo(Fragment fragment, boolean addToBackStack) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, fragment);
-
-        if (addToBackStack) {
-            fragmentTransaction.addToBackStack(null);
-        }
-
-        fragmentTransaction.commit();
-    }
 
 }

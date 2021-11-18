@@ -4,16 +4,13 @@ import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import indi.mat.work.login.MainActivityViewModel;
-import indi.mat.work.login.NavigationHost;
 import indi.mat.work.login.R;
 import indi.mat.work.login.attr.ToolBarInfo;
 import indi.mat.work.login.databinding.FragmentHomeBinding;
