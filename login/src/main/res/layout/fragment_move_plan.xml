@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="toolBarInfoViewModel"
-            type="indi.mat.work.login.ToolBarInfoViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.HomeFragment">
+        tools:context=".ui.home.MovePlanFragment">
 
         <Button
             android:id="@+id/button"
@@ -22,7 +18,7 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:backgroundTint="@color/green"
-            android:text="入库"
+            android:text="快速下架任务"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintDimensionRatio="1:1"
@@ -36,7 +32,7 @@
             android:layout_height="0dp"
             android:layout_margin="10dp"
             android:backgroundTint="@color/blue"
-            android:text="移库"
+            android:text="下架任务"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintDimensionRatio="1:1"
@@ -79,5 +75,6 @@
             android:orientation="horizontal"
 
             app:layout_constraintGuide_percent="0.5" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

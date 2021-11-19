@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/moveTaskSuccessFragment"
+        android:name="indi.mat.work.login.ui.transfer.move.MoveTaskSuccessFragment"
+        android:label="fragment_move_task_success"
+        tools:layout="@layout/fragment_move_task_success">
+        <action
+            android:id="@+id/action_moveTaskSuccessFragment_to_moveTaskFragment"
+            app:destination="@id/moveTaskFragment" />
+        <action
+            android:id="@+id/action_moveTaskSuccessFragment_to_movePlanFragment"
+            app:destination="@id/movePlanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moveTaskFragment"
+        android:name="indi.mat.work.login.ui.transfer.move.MoveTaskFragment"
+        android:label="fragment_move_task"
+        tools:layout="@layout/fragment_move_task">
+        <action
+            android:id="@+id/action_moveTaskFragment_to_moveTaskDetailFragment"
+            app:destination="@id/moveTaskDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moveTaskDetailFragment"
+        android:name="indi.mat.work.login.ui.transfer.move.MoveTaskDetailFragment"
+        android:label="fragment_move_task_detail"
+        tools:layout="@layout/fragment_move_task_detail">
+        <action
+            android:id="@+id/action_moveTaskDetailFragment_to_moveTaskVerifyFragment"
+            app:destination="@id/moveTaskVerifyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moveTaskVerifyFragment"
+        android:name="indi.mat.work.login.ui.transfer.move.MoveTaskVerifyFragment"
+        android:label="fragment_move_task_verify"
+        tools:layout="@layout/fragment_move_task_verify">
+        <action
+            android:id="@+id/action_moveTaskVerifyFragment_to_moveTaskSuccessFragment"
+            app:destination="@id/moveTaskSuccessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="indi.mat.work.login.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_movePlanFragment"
+            app:destination="@id/movePlanFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moveInFragment"
+            app:destination="@id/moveInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movePlanFragment"
+        android:name="indi.mat.work.login.ui.home.MovePlanFragment"
+        android:label="fragment_move_plan"
+        tools:layout="@layout/fragment_move_plan" >
+        <action
+            android:id="@+id/action_movePlanFragment_to_moveTaskFragment"
+            app:destination="@id/moveTaskFragment" />
+        <action
+            android:id="@+id/action_movePlanFragment_to_moveTaskDetailFragment"
+            app:destination="@id/moveTaskDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moveInFragment"
+        android:name="indi.mat.work.login.ui.transfer.movein.MoveInFragment"
+        android:label="fragment_move_in"
+        tools:layout="@layout/fragment_move_in" />
+</navigation>

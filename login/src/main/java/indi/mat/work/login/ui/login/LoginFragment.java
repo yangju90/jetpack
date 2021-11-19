@@ -2,11 +2,12 @@ package indi.mat.work.login.ui.login;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import android.text.Editable;
@@ -16,16 +17,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import indi.mat.work.login.R;
-import indi.mat.work.login.MainActivityViewModel;
+import indi.mat.work.login.ToolBarInfoViewModel;
 import indi.mat.work.login.attr.ToolBarInfo;
 import indi.mat.work.login.databinding.FragmentLoginBinding;
-import indi.mat.work.login.ui.home.HomeFragment;
+import indi.mat.work.login.utilities.NormalEditTextOnKeyListener;
+
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
 
-    private MainActivityViewModel viewModel;
+    private ToolBarInfoViewModel toolBarInfoViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,21 +37,12 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        viewModel = new ViewModelProvider(getActivity()).get(MainActivityViewModel.class);
-        binding.setLifecycleOwner(getActivity());
-        viewModel.setIsVisible(false);
-        ToolBarInfo toolBarInfo = new ToolBarInfo();
-        toolBarInfo.setTitle("Home");
-        viewModel.getTitle().setValue(toolBarInfo);
 
-        setListener();
+        toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
 
-        return root;
-    }
 
-    public void setListener(){
         binding.nextButton.setOnClickListener((View view) -> {
             boolean flag = true;
             if (!isUsernameValid(binding.usernameEditText.getText())) {
@@ -66,30 +59,42 @@ public class LoginFragment extends Fragment {
                 binding.passwordTextHint.setError(null);
             }
 
-
             if (flag) {
-                NavController navController =  Navigation.findNavController(view);
-                navController.navigate(R.id.action_loginFragment_to_homeFragment);
+                NavDirections action = LoginFragmentDirections.actionLoginFragmentToHomeActivity();
+                Navigation.findNavController(view).navigate(action);
+                getActivity().finish();
+            }else{
+                NavDirections action = LoginFragmentDirections.actionLoginFragmentToLoginFailedFragment();
+                Navigation.findNavController(view).navigate(action);
             }
         });
 
 
-        binding.usernameEditText.setOnKeyListener((View view, int i, KeyEvent keyEvent) -> {
-            if (isUsernameValid(binding.usernameEditText.getText())) {
+        binding.usernameEditText.setOnKeyListener(new NormalEditTextOnKeyListener() {
+            @Override
+            public void apply() {
                 binding.usernameTextHint.setError(null);
             }
-            return false;
         });
 
+        binding.passwordEditText.setOnKeyListener(new NormalEditTextOnKeyListener());
 
-        binding.passwordEditText.setOnKeyListener((View view, int i, KeyEvent keyEvent) -> {
-            if (isUsernameValid(binding.passwordEditText.getText())) {
-                binding.passwordTextHint.setError(null);
-            }
-            return false;
-        });
+        return root;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        toolBarInfoViewModel.setIsVisible(true);
+        ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
+        toolBarInfo.setTitle("Login Main");
+        toolBarInfoViewModel.setTitle(toolBarInfo);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 
     private boolean isPasswordValid(@Nullable Editable text) {
         return text != null && text.length() >= 1;

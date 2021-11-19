@@ -1,4 +1,4 @@
-package indi.mat.work.login.ui.home;
+package indi.mat.work.login.ui.transfer.move;
 
 import android.os.Bundle;
 
@@ -15,15 +15,14 @@ import android.view.ViewGroup;
 import indi.mat.work.login.R;
 import indi.mat.work.login.ToolBarInfoViewModel;
 import indi.mat.work.login.attr.ToolBarInfo;
-import indi.mat.work.login.databinding.FragmentHomeBinding;
+import indi.mat.work.login.databinding.FragmentMoveTaskDetailBinding;
 
 
-public class HomeFragment extends Fragment {
+public class MoveTaskDetailFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
 
     private ToolBarInfoViewModel toolBarInfoViewModel;
-
+    private FragmentMoveTaskDetailBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,34 +31,21 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_move_task_detail, container, false);
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
-        View root = binding.getRoot();
-        toolBarInfoViewModel.setIsVisible(true);
+
         ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Home Work");
+        toolBarInfo.setTitle("Task Detail");
         toolBarInfoViewModel.setTitle(toolBarInfo);
+        toolBarInfoViewModel.setIsVisible(true);
 
         setListener();
-
-        return root;
+        return binding.getRoot();
     }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-    }
-
 
     public void setListener() {
         binding.button.setOnClickListener((View view) -> {
-            NavDirections navDirections = HomeFragmentDirections.actionHomeFragmentToMoveInFragment();
-            Navigation.findNavController(view).navigate(navDirections);
-        });
-
-
-        binding.button2.setOnClickListener((View view) -> {
-            NavDirections navDirections = HomeFragmentDirections.actionHomeFragmentToMovePlanFragment();
+            NavDirections navDirections = MoveTaskDetailFragmentDirections.actionMoveTaskDetailFragmentToMoveTaskVerifyFragment();
             Navigation.findNavController(view).navigate(navDirections);
         });
     }

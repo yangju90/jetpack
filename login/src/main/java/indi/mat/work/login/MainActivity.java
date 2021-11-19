@@ -2,8 +2,6 @@ package indi.mat.work.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -11,28 +9,24 @@ import android.view.View;
 
 import indi.mat.work.login.attr.ToolBarInfo;
 import indi.mat.work.login.databinding.ActivityMainBinding;
-import indi.mat.work.login.ui.login.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private MainActivityViewModel viewModel;
+    private ToolBarInfoViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
-        binding.setMainActivityViewModel(viewModel);
+        viewModel = new ViewModelProvider(this).get(ToolBarInfoViewModel.class);
+        binding.setToolBarInfoViewModel(viewModel);
 
         binding.setLifecycleOwner(this);
 
         ToolBarInfo toolBarInfo = new ToolBarInfo();
         toolBarInfo.setTitle("Home");
-
         viewModel.getTitle().setValue(toolBarInfo);
-
-
         setSupportActionBar(binding.appBar);
         setObserver();
     }

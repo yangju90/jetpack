@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_nav_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_host"
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="indi.mat.work.login.ui.home.HomeFragment"
-        android:label="HomeFragment" />
-    <fragment
         android:id="@+id/loginFragment"
         android:name="indi.mat.work.login.ui.login.LoginFragment"
-        android:label="LoginFragment" >
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:launchSingleTop="false" />
+            android:id="@+id/action_loginFragment_to_loginFailedFragment"
+            app:destination="@id/loginFailedFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFailedFragment"
+        android:name="indi.mat.work.login.ui.login.LoginFailedFragment"
+        android:label="fragment_login_failed"
+        tools:layout="@layout/fragment_login_failed" >
+        <action
+            android:id="@+id/action_loginFailedFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="indi.mat.work.login.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
+
 </navigation>

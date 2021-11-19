@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModel;
 
 import indi.mat.work.login.attr.ToolBarInfo;
 
-public class MainActivityViewModel extends ViewModel {
+public class ToolBarInfoViewModel extends ViewModel {
 
     private MutableLiveData<ToolBarInfo> title;
     private MutableLiveData<Boolean> isVisible;
 
-    public MainActivityViewModel() {
+    public ToolBarInfoViewModel() {
         title = new MutableLiveData<>();
         ToolBarInfo toolBarInfo = new ToolBarInfo();
         toolBarInfo.setTitle("Home");
@@ -30,6 +30,11 @@ public class MainActivityViewModel extends ViewModel {
     public void setTitle(MutableLiveData<ToolBarInfo> title) {
         this.title = title;
     }
+
+    public void setTitle(ToolBarInfo title) {
+        this.title.setValue(title);
+    }
+
 
     public void setIsVisible(MutableLiveData<Boolean> isVisible) {
         this.isVisible = isVisible;
