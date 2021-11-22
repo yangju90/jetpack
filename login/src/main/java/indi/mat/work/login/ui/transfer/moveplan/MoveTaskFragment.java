@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
+import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
@@ -37,6 +39,10 @@ public class MoveTaskFragment extends Fragment {
         toolBarInfo.setTitle("Task");
         toolBarInfoViewModel.setTitle(toolBarInfo);
         toolBarInfoViewModel.setIsVisible(true);
+
+        NavController navController = Navigation.findNavController(getParentFragment().getView());
+        ViewModelStoreOwner viewModelStoreOwner = navController.getViewModelStoreOwner(R.id.plan_task_nav_graph);
+        System.out.println("======" + viewModelStoreOwner);
 
 
         setListener();
