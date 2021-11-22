@@ -1,7 +1,9 @@
 package indi.mat.work.login.ui.home;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -27,6 +29,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("HomeFragment : onCreate");
     }
 
     @Override
@@ -41,15 +44,63 @@ public class HomeFragment extends Fragment {
         toolBarInfoViewModel.setTitle(toolBarInfo);
 
         setListener();
+        System.out.println("HomeFragment : onCreateView");
 
         return root;
+    }
+
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        System.out.println("HomeFragment : onAttach");
+        super.onAttach(context);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        System.out.println("HomeFragment : onDestroyView");
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        System.out.println("HomeFragment : onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        System.out.println("HomeFragment : onResume");
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        System.out.println("HomeFragment : onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        System.out.println("HomeFragment : onStop");
+    }
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        System.out.println("HomeFragment : onDestroy");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        System.out.println("HomeFragment : onDetach");
+    }
 
     public void setListener() {
         binding.button.setOnClickListener((View view) -> {
@@ -59,7 +110,7 @@ public class HomeFragment extends Fragment {
 
 
         binding.button2.setOnClickListener((View view) -> {
-            NavDirections navDirections = HomeFragmentDirections.actionHomeFragmentToMovePlanFragment();
+            NavDirections navDirections = HomeFragmentDirections.actionHomeFragmentToPlanTaskNavGraph();
             Navigation.findNavController(view).navigate(navDirections);
         });
     }

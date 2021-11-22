@@ -14,8 +14,8 @@
             android:id="@+id/action_loginFragment_to_loginFailedFragment"
             app:destination="@id/loginFailedFragment" />
         <action
-            android:id="@+id/action_loginFragment_to_homeActivity"
-            app:destination="@id/homeActivity" />
+            android:id="@+id/action_loginFragment_to_home_nav_graph"
+            app:destination="@id/home_nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/loginFailedFragment"
@@ -26,10 +26,6 @@
             android:id="@+id/action_loginFailedFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
-    <activity
-        android:id="@+id/homeActivity"
-        android:name="indi.mat.work.login.HomeActivity"
-        android:label="activity_home"
-        tools:layout="@layout/activity_home" />
+    <include app:graph="@navigation/home_nav_graph" />
 
 </navigation>

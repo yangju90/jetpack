@@ -1,4 +1,4 @@
-package indi.mat.work.login.ui.transfer.move;
+package indi.mat.work.login.ui.transfer.moveplan;
 
 import android.os.Bundle;
 
@@ -15,13 +15,13 @@ import android.view.ViewGroup;
 import indi.mat.work.login.R;
 import indi.mat.work.login.ToolBarInfoViewModel;
 import indi.mat.work.login.attr.ToolBarInfo;
-import indi.mat.work.login.databinding.FragmentMoveTaskVerifyBinding;
+import indi.mat.work.login.databinding.FragmentMoveTaskSuccessBinding;
 
 
-public class MoveTaskVerifyFragment extends Fragment {
+public class MoveTaskSuccessFragment extends Fragment {
 
     private ToolBarInfoViewModel toolBarInfoViewModel;
-    private FragmentMoveTaskVerifyBinding binding;
+    private FragmentMoveTaskSuccessBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,11 @@ public class MoveTaskVerifyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_move_task_verify, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_move_task_success, container, false);
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
         toolBarInfoViewModel.setIsVisible(true);
         ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Task Verify");
+        toolBarInfo.setTitle("Task Success");
         toolBarInfoViewModel.setTitle(toolBarInfo);
 
         setListener();
@@ -44,7 +44,12 @@ public class MoveTaskVerifyFragment extends Fragment {
 
     public void setListener() {
         binding.button.setOnClickListener((View view) -> {
-            NavDirections navDirections = MoveTaskVerifyFragmentDirections.actionMoveTaskVerifyFragmentToMoveTaskSuccessFragment();
+            NavDirections navDirections = MoveTaskSuccessFragmentDirections.actionMoveTaskSuccessFragmentToMovePlanFragment();
+            Navigation.findNavController(view).navigate(navDirections);
+        });
+
+        binding.button1.setOnClickListener((View view) -> {
+            NavDirections navDirections = MoveTaskSuccessFragmentDirections.actionMoveTaskSuccessFragmentToMoveTaskFragment();
             Navigation.findNavController(view).navigate(navDirections);
         });
     }

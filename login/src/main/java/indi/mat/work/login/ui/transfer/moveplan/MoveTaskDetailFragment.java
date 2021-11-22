@@ -1,4 +1,4 @@
-package indi.mat.work.login.ui.transfer.move;
+package indi.mat.work.login.ui.transfer.moveplan;
 
 import android.os.Bundle;
 
@@ -15,13 +15,14 @@ import android.view.ViewGroup;
 import indi.mat.work.login.R;
 import indi.mat.work.login.ToolBarInfoViewModel;
 import indi.mat.work.login.attr.ToolBarInfo;
-import indi.mat.work.login.databinding.FragmentMoveTaskBinding;
+import indi.mat.work.login.databinding.FragmentMoveTaskDetailBinding;
 
 
-public class MoveTaskFragment extends Fragment {
+public class MoveTaskDetailFragment extends Fragment {
+
 
     private ToolBarInfoViewModel toolBarInfoViewModel;
-    private FragmentMoveTaskBinding binding;
+    private FragmentMoveTaskDetailBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,23 +31,21 @@ public class MoveTaskFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_move_task, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_move_task_detail, container, false);
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
 
         ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Task");
+        toolBarInfo.setTitle("Task Detail");
         toolBarInfoViewModel.setTitle(toolBarInfo);
         toolBarInfoViewModel.setIsVisible(true);
-
 
         setListener();
         return binding.getRoot();
     }
 
-
     public void setListener() {
         binding.button.setOnClickListener((View view) -> {
-            NavDirections navDirections = MoveTaskFragmentDirections.actionMoveTaskFragmentToMoveTaskDetailFragment();
+            NavDirections navDirections = MoveTaskDetailFragmentDirections.actionMoveTaskDetailFragmentToMoveTaskVerifyFragment();
             Navigation.findNavController(view).navigate(navDirections);
         });
     }

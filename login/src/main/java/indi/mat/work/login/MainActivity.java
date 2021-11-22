@@ -3,6 +3,11 @@ package indi.mat.work.login;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 import android.view.View;
@@ -27,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
         ToolBarInfo toolBarInfo = new ToolBarInfo();
         toolBarInfo.setTitle("Home");
         viewModel.getTitle().setValue(toolBarInfo);
-        setSupportActionBar(binding.appBar);
         setObserver();
+        NavHostFragment navHostFragment =
+                (NavHostFragment) getSupportFragmentManager().findFragmentById(binding.fragmentContainerView.getId());
+        NavController navController = navHostFragment.getNavController();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.homeFragment).build();
+        NavigationUI.setupWithNavController(binding.appBar, navController, appBarConfiguration);
+        System.out.println("MainActivity  :  OnCreate" );
     }
 
     private void setObserver() {
@@ -39,4 +49,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onStart() {
+        System.out.println("MainActivity  :  onStart" );
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        System.out.println("MainActivity  :  onResume" );
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        System.out.println("MainActivity  :  onPause" );
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onStop() {
+        System.out.println("MainActivity  :  onStop" );
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        System.out.println("MainActivity  :  onDestroy" );
+        super.onDestroy();
+    }
 }
