@@ -5,26 +5,23 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import android.text.Editable;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import indi.mat.work.login.R;
-import indi.mat.work.login.ToolBarInfoViewModel;
-import indi.mat.work.login.attr.ToolBarInfo;
+import indi.mat.work.login.model.ToolBarInfoViewModel;
+import indi.mat.work.login.base.BaseFragment;
 import indi.mat.work.login.databinding.FragmentLoginBinding;
 import indi.mat.work.login.utilities.NormalEditTextOnKeyListener;
 
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends BaseFragment {
 
     private FragmentLoginBinding binding;
 
@@ -44,6 +41,17 @@ public class LoginFragment extends Fragment {
 
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
 
+        toolBarInfoViewModel.setIsVisible(false);
+        toolBarInfoViewModel.setTitle("Login Main");
+
+        System.out.println("LoginFragment : onCreateView");
+
+        return root;
+    }
+
+    @Override
+    public void setListener() {
+        super.setListener();
 
         binding.nextButton.setOnClickListener((View view) -> {
             boolean flag = true;
@@ -79,21 +87,7 @@ public class LoginFragment extends Fragment {
         });
 
         binding.passwordEditText.setOnKeyListener(new NormalEditTextOnKeyListener());
-        System.out.println("LoginFragment : onCreateView");
-
-        return root;
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        toolBarInfoViewModel.setIsVisible(true);
-        ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Login Main");
-        toolBarInfoViewModel.setTitle(toolBarInfo);
-        System.out.println("LoginFragment : onViewCreated");
-    }
-
 
     @Override
     public void onAttach(@NonNull Context context) {

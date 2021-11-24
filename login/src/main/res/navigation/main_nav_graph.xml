@@ -15,17 +15,16 @@
             app:destination="@id/loginFailedFragment" />
         <action
             android:id="@+id/action_loginFragment_to_home_nav_graph"
-            app:destination="@id/home_nav_graph" />
+            app:destination="@id/home_nav_graph"
+            app:popUpTo="@id/main_nav_host"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/loginFailedFragment"
         android:name="indi.mat.work.login.ui.login.LoginFailedFragment"
         android:label="fragment_login_failed"
-        tools:layout="@layout/fragment_login_failed" >
-        <action
-            android:id="@+id/action_loginFailedFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_login_failed" />
+
     <include app:graph="@navigation/home_nav_graph" />
 
 </navigation>

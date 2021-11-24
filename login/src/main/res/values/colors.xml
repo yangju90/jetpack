@@ -11,4 +11,6 @@
     <color name="green">#49D51B</color>
     <color name="blue">#0FCAE4</color>
     <color name="red">#BF083B</color>
+    <color name="toolbarIconColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#FFFFFF</color>
 </resources>

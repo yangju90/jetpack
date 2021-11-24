@@ -3,7 +3,6 @@ package indi.mat.work.login.ui.transfer.moveplan;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
@@ -15,12 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import indi.mat.work.login.R;
-import indi.mat.work.login.ToolBarInfoViewModel;
-import indi.mat.work.login.attr.ToolBarInfo;
+import indi.mat.work.login.model.ToolBarInfoViewModel;
+import indi.mat.work.login.base.BaseFragment;
 import indi.mat.work.login.databinding.FragmentMovePlanBinding;
 
 
-public class MovePlanFragment extends Fragment {
+public class MovePlanFragment extends BaseFragment {
 
     private FragmentMovePlanBinding binding;
 
@@ -39,16 +38,13 @@ public class MovePlanFragment extends Fragment {
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
         View root = binding.getRoot();
         toolBarInfoViewModel.setIsVisible(true);
-        ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Move Plan");
-        toolBarInfoViewModel.setTitle(toolBarInfo);
+        toolBarInfoViewModel.setTitle("Move Plan");
+        toolBarInfoViewModel.setMenuVisible(true);
 
         NavController navController = Navigation.findNavController(getParentFragment().getView());
         ViewModelStoreOwner viewModelStoreOwner = navController.getViewModelStoreOwner(R.id.plan_task_nav_graph);
         System.out.println("======" + viewModelStoreOwner);
 
-
-        setListener();
         return root;
     }
 

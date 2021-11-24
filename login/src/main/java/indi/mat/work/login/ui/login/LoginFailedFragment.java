@@ -9,16 +9,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import indi.mat.work.login.R;
-import indi.mat.work.login.ToolBarInfoViewModel;
-import indi.mat.work.login.attr.ToolBarInfo;
+import indi.mat.work.login.model.ToolBarInfoViewModel;
+import indi.mat.work.login.base.BaseFragment;
 import indi.mat.work.login.databinding.FragmentLoginFailedBinding;
 
 
-public class LoginFailedFragment extends Fragment {
+public class LoginFailedFragment extends BaseFragment {
 
     private FragmentLoginFailedBinding binding;
     private ToolBarInfoViewModel toolBarInfoViewModel;
@@ -36,10 +35,10 @@ public class LoginFailedFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login_failed, container, false);
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
         View root = binding.getRoot();
-        ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Login Failed");
-        toolBarInfoViewModel.setTitle(toolBarInfo);
+        toolBarInfoViewModel.setTitle("Login Failed");
         toolBarInfoViewModel.setIsVisible(true);
+        toolBarInfoViewModel.setMenuVisible(false);
+
         System.out.println("LoginFailedFragment : onCreateView");
         return root;
     }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="indi.mat.work.login.ui.home.HomeFragment"
+        android:name="indi.mat.work.login.ui.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -23,4 +23,8 @@
         android:label="fragment_move_in"
         tools:layout="@layout/fragment_move_in" />
     <include app:graph="@navigation/plan_task_nav_graph" />
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="indi.mat.work.login.ui.main.ProductFragment"
+        android:label="ProductFragment" />
 </navigation>

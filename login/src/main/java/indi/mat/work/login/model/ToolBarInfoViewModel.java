@@ -1,40 +1,49 @@
-package indi.mat.work.login;
-
-import android.widget.Toolbar;
+package indi.mat.work.login.model;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import indi.mat.work.login.attr.ToolBarInfo;
-
 public class ToolBarInfoViewModel extends ViewModel {
 
-    private MutableLiveData<ToolBarInfo> title;
+    private MutableLiveData<String> title;
     private MutableLiveData<Boolean> isVisible;
+    private MutableLiveData<Boolean> menuVisible;
 
     public ToolBarInfoViewModel() {
         title = new MutableLiveData<>();
-        ToolBarInfo toolBarInfo = new ToolBarInfo();
-        toolBarInfo.setTitle("Home");
-
-        title.setValue(toolBarInfo);
+        title.setValue("Home");
 
         isVisible = new MutableLiveData<>();
         isVisible.setValue(true);
+
+        menuVisible = new MutableLiveData<>();
+        menuVisible.setValue(false);
     }
 
-    public MutableLiveData<ToolBarInfo> getTitle() {
+    public MutableLiveData<String> getTitle() {
         return title;
     }
 
-    public void setTitle(MutableLiveData<ToolBarInfo> title) {
+    public void setTitle(MutableLiveData<String> title) {
         this.title = title;
     }
 
-    public void setTitle(ToolBarInfo title) {
+    public void setTitle(String title) {
         this.title.setValue(title);
     }
 
+    public MutableLiveData<Boolean> getMenuVisible() {
+        return menuVisible;
+    }
+
+    public void setMenuVisible(MutableLiveData<Boolean> menuVisible) {
+        this.menuVisible = menuVisible;
+    }
+
+
+    public void setMenuVisible(Boolean menuVisible) {
+        this.menuVisible.setValue(menuVisible);
+    }
 
     public void setIsVisible(MutableLiveData<Boolean> isVisible) {
         this.isVisible = isVisible;
@@ -52,9 +61,8 @@ public class ToolBarInfoViewModel extends ViewModel {
     public void add(){
         System.out.println("++++++++++++++");
         if(title != null) {
-            ToolBarInfo toolBarInfo = title.getValue();
-            toolBarInfo.setTitle("add");
-            title.setValue(toolBarInfo);
+
+            title.setValue("add");
         }
     }
 
@@ -62,9 +70,7 @@ public class ToolBarInfoViewModel extends ViewModel {
     public void substract(){
         System.out.println("------------");
         if(title != null) {
-            ToolBarInfo toolBarInfo = title.getValue();
-            toolBarInfo.setTitle("substract");
-            title.setValue(toolBarInfo);
+            title.setValue("substract");
         }
     }
 }

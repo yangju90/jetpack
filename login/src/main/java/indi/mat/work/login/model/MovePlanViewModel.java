@@ -1,4 +1,4 @@
-package indi.mat.work.login.ui.transfer.moveplan;
+package indi.mat.work.login.model;
 
 import androidx.lifecycle.ViewModel;
 

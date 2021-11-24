@@ -3,7 +3,6 @@ package indi.mat.work.login.ui.transfer.moveplan;
 import android.os.Bundle;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -13,12 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import indi.mat.work.login.R;
-import indi.mat.work.login.ToolBarInfoViewModel;
-import indi.mat.work.login.attr.ToolBarInfo;
+import indi.mat.work.login.model.ToolBarInfoViewModel;
+import indi.mat.work.login.base.BaseFragment;
 import indi.mat.work.login.databinding.FragmentMoveTaskSuccessBinding;
 
 
-public class MoveTaskSuccessFragment extends Fragment {
+public class MoveTaskSuccessFragment extends BaseFragment {
 
     private ToolBarInfoViewModel toolBarInfoViewModel;
     private FragmentMoveTaskSuccessBinding binding;
@@ -34,11 +33,9 @@ public class MoveTaskSuccessFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_move_task_success, container, false);
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
         toolBarInfoViewModel.setIsVisible(true);
-        ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Task Success");
-        toolBarInfoViewModel.setTitle(toolBarInfo);
+        toolBarInfoViewModel.setTitle("Task Success");
+        toolBarInfoViewModel.setMenuVisible(true);
 
-        setListener();
         return binding.getRoot();
     }
 

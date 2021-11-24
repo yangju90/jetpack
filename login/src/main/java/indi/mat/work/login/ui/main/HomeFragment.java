@@ -1,11 +1,10 @@
-package indi.mat.work.login.ui.home;
+package indi.mat.work.login.ui.main;
 
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
@@ -17,12 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import indi.mat.work.login.R;
-import indi.mat.work.login.ToolBarInfoViewModel;
-import indi.mat.work.login.attr.ToolBarInfo;
+import indi.mat.work.login.model.ToolBarInfoViewModel;
+import indi.mat.work.login.base.BaseFragment;
 import indi.mat.work.login.databinding.FragmentHomeBinding;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
     private FragmentHomeBinding binding;
 
@@ -41,11 +40,9 @@ public class HomeFragment extends Fragment {
         toolBarInfoViewModel = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
         View root = binding.getRoot();
         toolBarInfoViewModel.setIsVisible(true);
-        ToolBarInfo toolBarInfo = toolBarInfoViewModel.getTitle().getValue();
-        toolBarInfo.setTitle("Home Work");
-        toolBarInfoViewModel.setTitle(toolBarInfo);
+        toolBarInfoViewModel.setTitle("Home Work");
+        toolBarInfoViewModel.setMenuVisible(true);
 
-        setListener();
         System.out.println("HomeFragment : onCreateView");
 
         NavController navController = Navigation.findNavController(getParentFragment().getView());

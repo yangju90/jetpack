@@ -9,7 +9,24 @@
     <string name="login_failed">Login Failed!</string>
 
 
+    <string name="mater_filter_title">Filter</string>
+    <string name="mater_search_title">Search</string>
+    <string name="mater_product_title">Title</string>
+    <string name="mater_product_description">Secondary text</string>
+
     <!-- user login hint  -->
-    <string name="login_username_error">Username must contain at least 6 characters.</string>
-    <string name="login_password_error">Password must contain at least 6 characters.</string>
+    <string name="login_username_error">Username must not null.</string>
+    <string name="login_password_error">Password must not null.</string>
+
+
+    <string name="mater_featured_label">Featured</string>
+    <string name="mater_apartment_label">Apartment</string>
+    <string name="mater_accessories_label">Accessories</string>
+    <string name="mater_shoes_label">Shoes</string>
+    <string name="mater_tops_label">Tops</string>
+    <string name="mater_bottoms_label">Bottoms</string>
+    <string name="mater_dresses_label">Dresses</string>
+    <string name="mater_account_label">My Account</string>
+
+    <string name="drawer_layout">滑动菜单</string>
 </resources>
