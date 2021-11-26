@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:name=".utilities.LoginApplication"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Jetpack">
+        android:theme="@style/Theme.Login">
         <activity
             android:name=".MainActivity"
             android:exported="true">
