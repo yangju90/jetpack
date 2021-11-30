@@ -9,4 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "jetpack"
 include ':app'
 include ':network'
-include ':login'
+include ':material'
+include ':mvvm'
