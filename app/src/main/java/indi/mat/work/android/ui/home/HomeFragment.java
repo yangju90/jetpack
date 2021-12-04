@@ -1,49 +1,47 @@
-package indi.mat.work.android.ui.home;
+package com.newegg.logistics.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import com.newegg.logistics.R;
+import com.newegg.logistics.base.BaseFragment;
+import com.newegg.logistics.base.LViewModelProviders;
+import com.newegg.logistics.databinding.FragmentHomeBinding;
+import com.newegg.logistics.behavior_collect.BehaviorSDK;
+import com.newegg.logistics.net.base.NetStatusModel;
 
-import indi.mat.work.android.R;
-import indi.mat.work.android.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
-    private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        Button button = getActivity().findViewById(R.id.top_bar_button);
-        button.setVisibility(View.GONE);
+        toolBarInfo.setIsVisible(true);
 
-        final TextView textView = binding.editTextTextPersonName;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onStart() {
+        super.onStart();
+        //每次homePage打开时检查上传行为收集日志
+        String userName = "Jayson";
+        BehaviorSDK.getInstance().checkPush(userName);
+
+    }
+
+
+    @Override
+    protected void setListener() {
+        super.setListener();
+        binding.button.setOnClickListener((View v) -> {
+            NetStatusModel.getInstance().loginOut();
+        }) ;
     }
 }
