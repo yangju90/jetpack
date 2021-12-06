@@ -1,9 +1,8 @@
-package com.newegg.logistics.net.interceptor;
+package indi.mat.work.android.net.interceptor;
 
 import androidx.annotation.NonNull;
 
-import com.newegg.logistics.utilities.LogUtil;
-
+import indi.mat.work.android.utilities.LogUtil;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class HttpLogger implements HttpLoggingInterceptor.Logger {

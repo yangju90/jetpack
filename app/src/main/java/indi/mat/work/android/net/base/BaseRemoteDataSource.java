@@ -1,11 +1,11 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
-
-import com.newegg.logistics.net.config.ApiCode;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+
+import indi.mat.work.android.net.config.ApiCode;
 
 public abstract class BaseRemoteDataSource<T> {
 

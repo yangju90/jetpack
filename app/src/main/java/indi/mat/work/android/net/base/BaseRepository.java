@@ -1,6 +1,6 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
-import com.newegg.logistics.base.BaseViewModel;
+import indi.mat.work.android.base.BaseViewModel;
 
 public class BaseRepository<T> {
     protected T remoteDataSource;

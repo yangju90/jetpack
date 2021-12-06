@@ -1,9 +1,8 @@
-package com.newegg.logistics.model.viewmodel;
+package indi.mat.work.android.model.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-import com.newegg.logistics.base.BaseViewModel;
+import indi.mat.work.android.base.BaseViewModel;
 
 public class ToolBarInfoViewModel extends BaseViewModel {
 

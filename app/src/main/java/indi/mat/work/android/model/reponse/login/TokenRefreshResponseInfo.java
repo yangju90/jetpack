@@ -1,7 +1,7 @@
-package com.newegg.logistics.model.reponse.login;
+package indi.mat.work.android.model.reponse.login;
 
-import com.newegg.logistics.model.base.BaseResponse;
-import com.newegg.logistics.model.base.TokenRefresh;
+import indi.mat.work.android.model.base.BaseResponse;
+import indi.mat.work.android.model.base.TokenRefresh;
 
 public class TokenRefreshResponseInfo extends BaseResponse<TokenRefresh> {
 }

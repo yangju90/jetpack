@@ -1,20 +1,16 @@
-package com.newegg.logistics.model.viewmodel;
+package indi.mat.work.android.model.viewmodel;
 
-import android.text.Editable;
-
-import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
-import com.newegg.logistics.R;
-import com.newegg.logistics.base.BaseViewModel;
-import com.newegg.logistics.data.LoginRepository;
-import com.newegg.logistics.model.base.TokenRefresh;
-import com.newegg.logistics.model.bean.LoginResult;
-import com.newegg.logistics.model.bean.User;
-import com.newegg.logistics.model.reponse.login.AccountUserResponseInfo;
-import com.newegg.logistics.model.request.login.LoginRequestInfo;
-import com.newegg.logistics.utilities.ToastHolder;
-import com.newegg.logistics.utilities.UserInfoStore;
+import indi.mat.work.android.base.BaseViewModel;
+import indi.mat.work.android.data.LoginRepository;
+import indi.mat.work.android.model.base.TokenRefresh;
+import indi.mat.work.android.model.bean.LoginResult;
+import indi.mat.work.android.model.bean.User;
+import indi.mat.work.android.model.reponse.login.AccountUserResponseInfo;
+import indi.mat.work.android.model.request.login.LoginRequestInfo;
+import indi.mat.work.android.utilities.UserInfoStore;
+
 
 public class LoginViewModel extends BaseViewModel {
 

@@ -1,4 +1,4 @@
-package com.newegg.logistics.net.config;
+package indi.mat.work.android.net.config;
 
 public enum ApiCode {
     CODE_DEMO(10000, "示例"),

@@ -1,13 +1,11 @@
-package com.newegg.logistics.utilities;
+package indi.mat.work.android.utilities;
 
 import android.app.Application;
 import android.content.Context;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.newegg.logistics.behavior_collect.BehaviorSDK;
-import com.newegg.logistics.common.storage.sp.SPUtils;
-import com.newegg.logistics.data.UploadLogRepository;
+import indi.mat.work.android.util.CrashHandler;
 
 public class MainApplication extends Application {
 
@@ -35,17 +33,9 @@ public class MainApplication extends Application {
         UserInfoStore.init();
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        //初始化全局的SPUtils
-        SPUtils.init(getAppContext());
-        //初始化用户收集并开启收集设置.fileName为assets文件夹下Json文件.
-        new BehaviorSDK.Initer(MainApplication.getAppContext(),getPackageName(),"trackSettings.json")
-                .isCollectClickEvent(true)
-                .isCollectLifeEvent(false)
-                .init()
-                .setUploadLogService(UploadLogRepository.getInstance());
 
         //开启崩溃日志收集
-        CrashHandler crashHandler = CrashHandler.getCrashHander();
-        crashHandler.init(this);
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getAppContext());
     }
 }

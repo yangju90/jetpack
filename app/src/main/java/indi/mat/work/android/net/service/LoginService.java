@@ -1,16 +1,12 @@
-package com.newegg.logistics.net.service;
+package indi.mat.work.android.net.service;
 
-import com.newegg.logistics.model.base.TokenRefresh;
-import com.newegg.logistics.model.reponse.login.AccountUserResponseInfo;
-import com.newegg.logistics.model.reponse.login.TokenRefreshResponseInfo;
-import com.newegg.logistics.model.request.login.LoginRequestInfo;
-import com.newegg.logistics.utilities.UserInfoStore;
-
-
+import indi.mat.work.android.model.base.TokenRefresh;
+import indi.mat.work.android.model.reponse.login.AccountUserResponseInfo;
+import indi.mat.work.android.model.reponse.login.TokenRefreshResponseInfo;
+import indi.mat.work.android.model.request.login.LoginRequestInfo;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
-import retrofit2.http.Url;
 
 public interface LoginService {
     @POST("api/login")

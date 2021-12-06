@@ -1,18 +1,15 @@
-package com.newegg.logistics.net.interceptor;
+package indi.mat.work.android.net.interceptor;
 
 import androidx.annotation.NonNull;
 
-import com.newegg.logistics.BuildConfig;
-import com.newegg.logistics.model.base.TokenRefresh;
-import com.newegg.logistics.model.reponse.login.TokenRefreshResponseInfo;
-import com.newegg.logistics.net.base.RetrofitManagement;
-import com.newegg.logistics.net.config.ApiCode;
-import com.newegg.logistics.net.service.LoginService;
-import com.newegg.logistics.utilities.MainApplication;
-import com.newegg.logistics.utilities.UserInfoStore;
-
 import java.io.IOException;
 
+import indi.mat.work.android.model.base.TokenRefresh;
+import indi.mat.work.android.model.reponse.login.TokenRefreshResponseInfo;
+import indi.mat.work.android.net.base.RetrofitManagement;
+import indi.mat.work.android.net.config.ApiCode;
+import indi.mat.work.android.net.service.LoginService;
+import indi.mat.work.android.utilities.UserInfoStore;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;

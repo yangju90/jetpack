@@ -1,4 +1,4 @@
-package com.newegg.logistics.net.config;
+package indi.mat.work.android.net.config;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,7 +8,7 @@ public class ApiCodeUtil {
     public static HashMap<Integer, ApiCode> cache = null;
 
     static {
-        cache = (HashMap<Integer, ApiCode>)Arrays.stream(ApiCode.values()).collect(Collectors.toMap(ApiCode::getCode, ApiCode -> ApiCode));
+        cache = (HashMap<Integer, ApiCode>) Arrays.stream(ApiCode.values()).collect(Collectors.toMap(ApiCode::getCode, ApiCode -> ApiCode));
     }
 
     public static ApiCode getApiCode(int code){

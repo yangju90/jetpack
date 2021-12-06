@@ -1,14 +1,11 @@
-package com.newegg.logistics.net;
-
-
-import com.newegg.logistics.model.reponse.login.AccountUserResponseInfo;
-import com.newegg.logistics.model.request.login.LoginRequestInfo;
-import com.newegg.logistics.net.base.BaseRemoteDataSource;
-import com.newegg.logistics.net.service.LoginService;
-
+package indi.mat.work.android.net;
 
 import java.io.IOException;
 
+import indi.mat.work.android.model.reponse.login.AccountUserResponseInfo;
+import indi.mat.work.android.model.request.login.LoginRequestInfo;
+import indi.mat.work.android.net.base.BaseRemoteDataSource;
+import indi.mat.work.android.net.service.LoginService;
 import retrofit2.Callback;
 import retrofit2.Response;
 

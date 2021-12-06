@@ -1,4 +1,4 @@
-package com.newegg.logistics.net.interceptor;
+package indi.mat.work.android.net.interceptor;
 
 import androidx.annotation.NonNull;
 

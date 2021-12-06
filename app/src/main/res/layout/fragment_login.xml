@@ -7,7 +7,7 @@
     <data>
         <variable
             name="loginViewModel"
-            type="com.newegg.logistics.model.viewmodel.LoginViewModel" />
+            type="indi.mat.work.android.model.viewmodel.LoginViewModel" />
     </data>
 
     <FrameLayout
@@ -26,18 +26,13 @@
             android:paddingTop="16dp">
 
 
-            <TextView
-                android:id="@+id/textview_login_title"
-                style="@style/text_title_style"
-                android:text="Badage" />
-
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="48dp"
                 android:layout_marginBottom="16dp"
-                app:srcCompat="@drawable/ic_baseline_login_icon_24" />
+                app:srcCompat="@drawable/ic_baseline_inbox_24" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -55,8 +50,8 @@
                 android:layout_margin="4dp"
                 android:hint="@string/login_hint_username">
 
+
                 <com.google.android.material.textfield.TextInputEditText
-                    style="@style/editText_style"
                     android:id="@+id/username_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -68,7 +63,6 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_login"
-                style="@style/button_style"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
@@ -77,11 +71,10 @@
 
             <TextView
                 android:id="@+id/textview_version"
-                style="@style/text_content_style"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:layout_alignParentBottom="true"
                 android:gravity="center"
-
                 android:text="Version:1.0.1" />
 
         </LinearLayout>

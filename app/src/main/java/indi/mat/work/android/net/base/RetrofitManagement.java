@@ -1,21 +1,21 @@
-package com.newegg.logistics.net.base;
-
-import com.newegg.logistics.BuildConfig;
-import com.newegg.logistics.net.interceptor.HeaderInterceptor;
-import com.newegg.logistics.net.interceptor.HttpLogger;
-import com.newegg.logistics.net.interceptor.UriInterceptor;
-import com.newegg.logistics.utilities.UserInfoStore;
+package indi.mat.work.android.net.base;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
+import indi.mat.work.android.BuildConfig;
+import indi.mat.work.android.net.interceptor.HeaderInterceptor;
+import indi.mat.work.android.net.interceptor.HttpLogger;
+import indi.mat.work.android.net.interceptor.UriInterceptor;
+import indi.mat.work.android.utilities.UserInfoStore;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 
 public class RetrofitManagement {
 

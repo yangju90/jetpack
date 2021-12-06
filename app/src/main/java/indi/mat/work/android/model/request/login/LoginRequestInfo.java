@@ -1,4 +1,4 @@
-package com.newegg.logistics.model.request.login;
+package indi.mat.work.android.model.request.login;
 
 public class LoginRequestInfo {
     // 登录账号

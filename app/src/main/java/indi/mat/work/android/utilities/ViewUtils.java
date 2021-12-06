@@ -1,4 +1,4 @@
-package com.newegg.logistics.utilities;
+package indi.mat.work.android.utilities;
 
 import android.view.View;
 import android.view.ViewGroup;

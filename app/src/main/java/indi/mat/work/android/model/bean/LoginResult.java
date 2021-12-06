@@ -1,4 +1,4 @@
-package com.newegg.logistics.model.bean;
+package indi.mat.work.android.model.bean;
 
 public class LoginResult {
 

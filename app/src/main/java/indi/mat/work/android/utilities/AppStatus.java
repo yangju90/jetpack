@@ -1,4 +1,4 @@
-package com.newegg.logistics.utilities;
+package indi.mat.work.android.utilities;
 
 public enum AppStatus {
     APP_ACTION_STATUS_INIT,

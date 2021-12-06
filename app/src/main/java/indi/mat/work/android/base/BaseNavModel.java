@@ -1,4 +1,4 @@
-package com.newegg.logistics.base;
+package indi.mat.work.android.base;
 
 import androidx.lifecycle.ViewModel;
 

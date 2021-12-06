@@ -2,30 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_nav_graph"
-    app:startDestination="@id/itemDetilasFragment">
+    android:id="@+id/home_nav_graph">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.newegg.logistics.ui.home.HomeFragment"
+        android:name="indi.mat.work.android.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_scanLabelFragment"
-            app:destination="@id/scanLabelFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/scanLabelFragment"
-        android:name="com.newegg.logistics.ScanLabelFragment"
-        android:label="fragment_scan_label"
-        tools:layout="@layout/fragment_scan_label" >
-        <action
-            android:id="@+id/action_scanLabelFragment_to_itemDetilasFragment"
-            app:destination="@id/itemDetilasFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/itemDetilasFragment"
-        android:name="com.newegg.logistics.ItemDetilasFragment"
-        android:label="fragment_item_detilas"
-        tools:layout="@layout/fragment_item_detilas" />
+        tools:layout="@layout/fragment_home" />
 </navigation>

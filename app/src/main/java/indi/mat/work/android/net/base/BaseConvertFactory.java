@@ -1,4 +1,4 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
 import androidx.annotation.Nullable;
 

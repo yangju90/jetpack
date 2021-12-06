@@ -1,20 +1,16 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
-
-import com.newegg.logistics.base.BaseViewModel;
-import com.newegg.logistics.model.base.BaseResponse;
-import com.newegg.logistics.net.config.ApiCode;
-import com.newegg.logistics.net.config.ApiCodeUtil;
-import com.newegg.logistics.utilities.ToastHolder;
-
-
+import indi.mat.work.android.base.BaseViewModel;
+import indi.mat.work.android.model.base.BaseResponse;
+import indi.mat.work.android.net.config.ApiCode;
+import indi.mat.work.android.utilities.ToastHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CallbackFactory {
 
-    private BaseViewModel  baseViewModel;
+    private BaseViewModel baseViewModel;
     public CallbackFactory(BaseViewModel baseViewModel) {
         this.baseViewModel = baseViewModel;
     }

@@ -1,4 +1,4 @@
-package com.newegg.logistics.base;
+package indi.mat.work.android.base;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

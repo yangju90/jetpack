@@ -8,7 +8,7 @@
     <data>
         <variable
             name="toolBarInfoViewModel"
-            type="com.newegg.logistics.model.viewmodel.ToolBarInfoViewModel" />
+            type="indi.mat.work.android.model.viewmodel.ToolBarInfoViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

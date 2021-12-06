@@ -1,8 +1,8 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.newegg.logistics.utilities.AppStatus;
+import indi.mat.work.android.utilities.AppStatus;
 
 public class NetStatusModel {
 

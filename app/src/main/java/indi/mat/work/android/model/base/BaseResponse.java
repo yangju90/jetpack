@@ -1,4 +1,4 @@
-package com.newegg.logistics.model.base;
+package indi.mat.work.android.model.base;
 
 public class BaseResponse<T> {
 

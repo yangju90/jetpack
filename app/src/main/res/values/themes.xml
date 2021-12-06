@@ -1,25 +1,103 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Jetpack" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Login" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <!-- toolbar的主要颜色  -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- Button的主要颜色 -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- App顶部，系统时间栏的颜色-->
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <!-- 影响按钮字体颜色 -->
+        <item name="colorOnPrimary">@color/teal_700</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">#442C2E</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">#FEEAE6</item>
+
+
+
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Jetpack.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Card</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
     </style>
 
-    <style name="Theme.Jetpack.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="ThemeOverlay.App.Card" parent="">
+        <item name="colorPrimary">@color/shrine_pink_100</item>
+        <item name="colorSurface">@color/shrine_pink_light</item>
+        <item name="colorOnSurface">@color/shrine_pink_900</item>
+    </style>
 
-    <style name="Theme.Jetpack.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
+    <style name="Widget.Login.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/colorAccent</item>
+        <item name="android:theme">@style/Theme.Login</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Login.Toolbar</item>
+    </style>
+
+
+    <style name="TextAppearance.Login.Toolbar" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+
+
+    <style name="Widget.Login.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Login.TextInputLayout.HintText</item>
+        <!-- 错误输入时提示字符及边框颜色 -->
+        <item name="hintTextColor">?android:attr/textColorPrimary</item>
+        <item name="android:paddingBottom">8dp</item>
+        <!-- 输入时边框的颜色 -->
+        <item name="boxStrokeColor">@color/textInputOutlineColor</item>
+    </style>
+
+    <style name="TextAppearance.Login.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+
+    <style name="Widget.Login.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+        <!--        <item name="android:stateListAnimator" tools:ignore="NewApi">-->
+        <!--            @animator/shr_next_button_state_list_anim-->
+        <!--        </item>-->
+    </style>
+
+    <style name="Widget.Login.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Login.Title" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <!-- 秋季主题 -->
+    <style name="Theme.Login.Autumn" parent="Theme.Login">
+        <item name="colorPrimary">#FFCF44</item>
+        <item name="colorPrimaryDark">#FD9725</item>
+        <item name="colorAccent">#FD9725</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorError">#FD9725</item>
+    </style>
 </resources>

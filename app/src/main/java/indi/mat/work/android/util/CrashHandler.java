@@ -52,7 +52,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         } catch (InterruptedException e) {
             Log.e(TAG, "error interrupter !");
         }
-        ActivityCollector.finishAll();
         mDefaultHandler.uncaughtException(thread, ex);
     }
 

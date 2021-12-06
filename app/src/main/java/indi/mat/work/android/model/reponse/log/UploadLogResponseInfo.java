@@ -1,6 +1,6 @@
-package com.newegg.logistics.model.reponse.log;
+package indi.mat.work.android.model.reponse.log;
 
-import com.newegg.logistics.model.base.BaseResponse;
+import indi.mat.work.android.model.base.BaseResponse;
 
 public class UploadLogResponseInfo extends BaseResponse {
 }

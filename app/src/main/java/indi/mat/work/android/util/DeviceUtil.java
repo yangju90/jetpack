@@ -13,7 +13,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 
-import indi.mat.work.android.MainApplication;
+import indi.mat.work.android.utilities.MainApplication;
 
 public class DeviceUtil {
 
@@ -21,7 +21,7 @@ public class DeviceUtil {
      * 获得IP地址，分为两种情况，一是wifi下，二是移动网络下，得到的ip地址是不一样的
      */
     public static String getIPAddress() {
-        Context context = MainApplication.getContext();
+        Context context = MainApplication.getAppContext();
         NetworkInfo info = ((ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
         if (info != null && info.isConnected()) {
@@ -57,7 +57,7 @@ public class DeviceUtil {
     }
 
     public static String getDeviceName() {
-        Context context = MainApplication.getContext();
+        Context context = MainApplication.getAppContext();
         return Settings.Global.getString(context.getContentResolver(), Settings.Global.DEVICE_NAME);
     }
 

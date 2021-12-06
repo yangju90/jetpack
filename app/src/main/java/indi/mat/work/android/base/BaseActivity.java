@@ -1,3 +1,18 @@
+package indi.mat.work.android.base;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import indi.mat.work.android.net.base.NetStatusModel;
+
 public class BaseActivity extends AppCompatActivity {
 
     protected NetStatusModel netStatusModel;
@@ -8,17 +23,6 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         netStatusModel = NetStatusModel.getInstance();
 
-        //判断是否是斑马设备来开启EMDK
-        if(Build.MANUFACTURER.contains("Zebra Technologies") || Build.MANUFACTURER.contains("Motorola Solutions")){
-            EMDKAPIWrapper emdkapiWrapper = new EMDKAPIWrapper();
-            emdkapiWrapper.getEMDKManager(getApplicationContext());
-        }
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        BehaviorSDK.getInstance().collectCommonClickEvents(ev,getWindow().getDecorView());
-        return super.dispatchTouchEvent(ev);
     }
 
     @Override

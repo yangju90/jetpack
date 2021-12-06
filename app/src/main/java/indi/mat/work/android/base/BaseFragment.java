@@ -1,4 +1,4 @@
-package com.newegg.logistics.base;
+package indi.mat.work.android.base;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,14 +7,11 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.Navigation;
 
-import com.newegg.logistics.model.viewmodel.ToolBarInfoViewModel;
-
-import com.newegg.logistics.behavior_collect.BehaviorSDK;
+import indi.mat.work.android.model.viewmodel.ToolBarInfoViewModel;
 
 public class BaseFragment extends Fragment {
 
@@ -36,13 +33,11 @@ public class BaseFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        BehaviorSDK.getInstance().collectCommonLifeEvents(getClass().getSimpleName()+"  start ");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        BehaviorSDK.getInstance().collectCommonLifeEvents(getClass().getSimpleName()+"  stop ");
     }
 
     protected <T extends BaseNavModel> T createNavViewModel(@IdRes int navGraphId, Class<T> clazz){

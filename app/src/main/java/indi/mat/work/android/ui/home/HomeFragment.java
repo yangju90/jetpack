@@ -1,16 +1,13 @@
-package com.newegg.logistics.ui.home;
+package indi.mat.work.android.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.newegg.logistics.R;
-import com.newegg.logistics.base.BaseFragment;
-import com.newegg.logistics.base.LViewModelProviders;
-import com.newegg.logistics.databinding.FragmentHomeBinding;
-import com.newegg.logistics.behavior_collect.BehaviorSDK;
-import com.newegg.logistics.net.base.NetStatusModel;
+import indi.mat.work.android.base.BaseFragment;
+import indi.mat.work.android.databinding.FragmentHomeBinding;
+import indi.mat.work.android.net.base.NetStatusModel;
 
 
 public class HomeFragment extends BaseFragment {
@@ -31,9 +28,6 @@ public class HomeFragment extends BaseFragment {
     public void onStart() {
         super.onStart();
         //每次homePage打开时检查上传行为收集日志
-        String userName = "Jayson";
-        BehaviorSDK.getInstance().checkPush(userName);
-
     }
 
 

@@ -1,8 +1,8 @@
-package com.newegg.logistics.utilities;
+package indi.mat.work.android.utilities;
 
 import android.util.Log;
 
-import com.newegg.logistics.BuildConfig;
+import indi.mat.work.android.BuildConfig;
 
 public class LogUtil {
     public static final int VERBOSE = 1;

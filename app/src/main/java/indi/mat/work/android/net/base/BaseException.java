@@ -1,7 +1,6 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
-
-import com.newegg.logistics.net.config.ApiCode;
+import indi.mat.work.android.net.config.ApiCode;
 
 public class BaseException extends RuntimeException {
     public BaseException() {

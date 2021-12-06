@@ -1,27 +1,21 @@
-package com.newegg.logistics.ui.login;
+package indi.mat.work.android.ui.login;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.newegg.logistics.R;
-import com.newegg.logistics.base.BaseFragment;
-import com.newegg.logistics.base.LViewModelProviders;
-import com.newegg.logistics.databinding.FragmentLoginBinding;
-import com.newegg.logistics.model.bean.LoginResult;
-import com.newegg.logistics.model.bean.User;
-import com.newegg.logistics.model.viewmodel.LoginViewModel;
-import com.newegg.logistics.utilities.UserInfoStore;
+import indi.mat.work.android.R;
+import indi.mat.work.android.base.BaseFragment;
+import indi.mat.work.android.base.LViewModelProviders;
+import indi.mat.work.android.databinding.FragmentLoginBinding;
+import indi.mat.work.android.model.bean.LoginResult;
+import indi.mat.work.android.model.viewmodel.LoginViewModel;
 
 
 public class LoginFragment extends BaseFragment {

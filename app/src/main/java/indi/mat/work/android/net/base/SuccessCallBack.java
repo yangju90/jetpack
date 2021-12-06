@@ -1,7 +1,6 @@
-package com.newegg.logistics.net.base;
+package indi.mat.work.android.net.base;
 
-import com.newegg.logistics.model.base.BaseResponse;
-
+import indi.mat.work.android.model.base.BaseResponse;
 import retrofit2.Call;
 import retrofit2.Response;
 

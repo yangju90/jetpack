@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
-        android:name=".MainApplication"
+        android:name=".utilities.MainApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,17 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jetpack">
         <activity
-            android:name=".HomeActivity"
-            android:exported="true"
-            android:label="@string/title_activity_home"
-            android:theme="@style/Theme.Jetpack.NoActionBar" >
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

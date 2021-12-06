@@ -7,4 +7,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#ECE4E4</color>
+    <color name="green">#49D51B</color>
+    <color name="blue">#0FCAE4</color>
+    <color name="red">#BF083B</color>
+
+    <color name="colorPrimary">#FEDBD0</color>
+    <color name="colorPrimaryDark">#FBB8AC</color>
+    <color name="colorAccent">#FEDBD0</color>
+    <color name="textColorPrimary">#442C2E</color>
+    <color name="toolbarIconColor">@color/textColorPrimary</color>
+    <color name="loginPageBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#FFFFFF</color>
+    <color name="textInputOutlineColor">#FBB8AC</color>
+
+    <color name="shrine_pink_100">#FEDBD0</color>
+    <color name="shrine_pink_light">#FF5019</color>
+    <color name="shrine_pink_900">#8C1B06</color>
 </resources>

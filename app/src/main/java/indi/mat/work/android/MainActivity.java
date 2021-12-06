@@ -1,3 +1,20 @@
+package indi.mat.work.android;
+
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import indi.mat.work.android.base.BaseActivity;
+import indi.mat.work.android.base.LViewModelProviders;
+import indi.mat.work.android.databinding.ActivityMainBinding;
+import indi.mat.work.android.model.viewmodel.ToolBarInfoViewModel;
+
 public class MainActivity extends BaseActivity {
 
     private ActivityMainBinding binding;

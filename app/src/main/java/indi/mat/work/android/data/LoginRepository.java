@@ -1,16 +1,15 @@
-package com.newegg.logistics.data;
+package indi.mat.work.android.data;
+
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.newegg.logistics.base.BaseViewModel;
-import com.newegg.logistics.model.reponse.login.AccountUserResponseInfo;
-import com.newegg.logistics.model.request.login.LoginRequestInfo;
-import com.newegg.logistics.net.AccountUserDataSource;
-import com.newegg.logistics.net.base.BaseRepository;
-
+import indi.mat.work.android.base.BaseViewModel;
+import indi.mat.work.android.model.reponse.login.AccountUserResponseInfo;
+import indi.mat.work.android.model.request.login.LoginRequestInfo;
+import indi.mat.work.android.net.AccountUserDataSource;
+import indi.mat.work.android.net.base.BaseRepository;
 import retrofit2.Call;
 import retrofit2.Response;
-
 
 public class LoginRepository extends BaseRepository<AccountUserDataSource> {
 

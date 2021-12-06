@@ -1,8 +1,7 @@
-package com.newegg.logistics.net.exception;
+package indi.mat.work.android.net.exception;
 
-
-import com.newegg.logistics.net.base.BaseException;
-import com.newegg.logistics.net.config.ApiCode;
+import indi.mat.work.android.net.base.BaseException;
+import indi.mat.work.android.net.config.ApiCode;
 
 public class AccountInvalidException extends BaseException {
     public AccountInvalidException() {
