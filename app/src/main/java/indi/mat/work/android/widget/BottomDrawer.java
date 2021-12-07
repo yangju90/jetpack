@@ -1,24 +1,43 @@
+package indi.mat.work.android.widget;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import indi.mat.work.android.R;
+import indi.mat.work.android.model.bean.WareHouse;
 
 public class BottomDrawer extends BottomSheetDialog {
 
-    private List<Warehouse> mWarehouseList = new ArrayList<>();
+    private List<WareHouse> mWarehouseList = new ArrayList<>();
     private GridView gridView;
     private ItemAdapter adapter;
     private OnChoiceWarehouseListener mListener;
 
 
-    public ChoiceWarehouseDialog(@NonNull Context context) {
+    public BottomDrawer(@NonNull Context context) {
         super(context);
         init(context);
     }
 
-    public ChoiceWarehouseDialog(@NonNull Context context, int theme) {
+    public BottomDrawer(@NonNull Context context, int theme) {
         super(context, theme);
         init(context);
 
     }
 
-    protected ChoiceWarehouseDialog(@NonNull Context context, boolean cancelable, OnCancelListener cancelListener) {
+    protected BottomDrawer(@NonNull Context context, boolean cancelable, OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         init(context);
 
@@ -50,10 +69,10 @@ public class BottomDrawer extends BottomSheetDialog {
     }
 
     public interface OnChoiceWarehouseListener {
-        void onChoice(Warehouse warehouse);
+        void onChoice(WareHouse warehouse);
     }
 
-    public void show(List<Warehouse> warehouseList) {
+    public void show(List<WareHouse> warehouseList) {
         mWarehouseList.clear();
         if (warehouseList != null && warehouseList.size() > 0) {
             mWarehouseList.addAll(warehouseList);
@@ -70,17 +89,17 @@ public class BottomDrawer extends BottomSheetDialog {
 
     public static class ItemAdapter extends BaseAdapter {
 
-        private List<Warehouse> warehouseList;
+        private List<WareHouse> warehouseList;
 
-        public ItemAdapter(List<Warehouse> warehouseList) {
+        public ItemAdapter(List<WareHouse> warehouseList) {
             this.warehouseList = warehouseList;
         }
 
-        public List<Warehouse> getWarehouseList() {
+        public List<WareHouse> getWarehouseList() {
             return warehouseList;
         }
 
-        public void setWarehouseList(List<Warehouse> warehouseList) {
+        public void setWarehouseList(List<WareHouse> warehouseList) {
             this.warehouseList = warehouseList;
         }
 

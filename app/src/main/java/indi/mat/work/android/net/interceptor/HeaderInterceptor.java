@@ -53,7 +53,7 @@ public class HeaderInterceptor implements Interceptor {
                 .addHeader("Content-Type", "application/json; charset=utf-8");
         if(UserInfoStore.isLoginCompleted()){
             builder.addHeader("X-UserID", UserInfoStore.getUser().getUserID());
-            builder.addHeader("x-neplatform-jwt", UserInfoStore.getUser().getToken());
+            builder.addHeader("X-jwt-token", UserInfoStore.getUser().getToken());
             builder.addHeader("X-WarehouseNumber", UserInfoStore.getUser().getCurrWh());
         }
 

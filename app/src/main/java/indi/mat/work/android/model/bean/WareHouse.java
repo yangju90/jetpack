@@ -1,9 +1,13 @@
-public class Warehouse implements Serializable {
+package indi.mat.work.android.model.bean;
+
+import java.io.Serializable;
+
+public class WareHouse implements Serializable {
     private int id;
     private String name;
     private String nameNo;
 
-    public Warehouse(int id, String name, String nameNo) {
+    public WareHouse(int id, String name, String nameNo) {
         this.id = id;
         this.name = name;
         this.nameNo = nameNo;

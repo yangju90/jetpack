@@ -2,6 +2,7 @@ package indi.mat.work.android.net.base;
 
 import indi.mat.work.android.base.BaseViewModel;
 import indi.mat.work.android.model.base.BaseResponse;
+import indi.mat.work.android.model.reponse.login.AccountUserResponseInfo;
 import indi.mat.work.android.net.config.ApiCode;
 import indi.mat.work.android.utilities.ToastHolder;
 import retrofit2.Call;
@@ -63,6 +64,10 @@ public class CallbackFactory {
         @Override
         public void onFailure(Call<T> call, Throwable t) {
             ToastHolder.showToast(t.getMessage());
+            // 创建假回复
+            BaseResponse baseResponse = new AccountUserResponseInfo();
+            baseResponse.setStatus(true);
+            onSuccess(call, Response.success((T)baseResponse));
             dismissLoading();
         }
 

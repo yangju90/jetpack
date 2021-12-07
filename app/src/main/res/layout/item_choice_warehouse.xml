@@ -11,7 +11,7 @@
       android:id="@+id/warehouse_item_button"
       android:layout_width="0dp"
       android:layout_height="48dp"
-      android:background="@drawable/round_corners_bg"
+      android:background="@color/blue"
       android:gravity="center"
       android:textColor="#222222"
       android:textStyle="bold"

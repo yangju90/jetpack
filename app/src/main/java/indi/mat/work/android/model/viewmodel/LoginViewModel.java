@@ -2,11 +2,15 @@ package indi.mat.work.android.model.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import indi.mat.work.android.base.BaseViewModel;
 import indi.mat.work.android.data.LoginRepository;
 import indi.mat.work.android.model.base.TokenRefresh;
 import indi.mat.work.android.model.bean.LoginResult;
 import indi.mat.work.android.model.bean.User;
+import indi.mat.work.android.model.bean.WareHouse;
 import indi.mat.work.android.model.reponse.login.AccountUserResponseInfo;
 import indi.mat.work.android.model.request.login.LoginRequestInfo;
 import indi.mat.work.android.utilities.UserInfoStore;
@@ -57,13 +61,18 @@ public class LoginViewModel extends BaseViewModel {
         }else {
             loginRepository.login(loginRequestInfo).observe(lifecycleOwner, (AccountUserResponseInfo accountUserResponseInfo) -> {
                 if (accountUserResponseInfo.getStatus()) {
-                    TokenRefresh tokenRefresh = accountUserResponseInfo.getData();
+//                    TokenRefresh tokenRefresh = accountUserResponseInfo.getData();
                     User user = UserInfoStore.getUser();
-                    user.setToken(tokenRefresh.getToken());
-                    user.setRefreshToken(tokenRefresh.getRefreshToken());
+//                    user.setToken(tokenRefresh.getToken());
+//                    user.setRefreshToken(tokenRefresh.getRefreshToken());
                     user.setUserID(username.getValue());
                     user.setUrl("https://www.hao123.com/");
+                    List<String> whList = new ArrayList<>();
+                    whList.add("25");
+                    whList.add("30");
+                    user.setWhList(whList);
                     loginResult.setStatus(true);
+                    loginResult.setWareHouseList(convertWareHouse(user.getWhList()));
                 } else {
                     loginResult.setStatus(false);
                     loginResult.setMessage(accountUserResponseInfo.getMessage());
@@ -77,5 +86,13 @@ public class LoginViewModel extends BaseViewModel {
 
     private boolean isUsernameValid() {
         return username.getValue() != null && username.getValue().length() > 0;
+    }
+
+    private List<WareHouse> convertWareHouse(List<String> whList){
+        List<WareHouse> ans = new ArrayList<>();
+        for(int i = 1; i<= whList.size(); i++){
+            ans.add(new WareHouse(i, whList.get(i - 1) + "号仓库", whList.get(i -1)));
+        }
+        return ans;
     }
 }

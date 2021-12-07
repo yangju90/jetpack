@@ -16,12 +16,15 @@ import indi.mat.work.android.base.LViewModelProviders;
 import indi.mat.work.android.databinding.FragmentLoginBinding;
 import indi.mat.work.android.model.bean.LoginResult;
 import indi.mat.work.android.model.viewmodel.LoginViewModel;
+import indi.mat.work.android.utilities.UserInfoStore;
+import indi.mat.work.android.widget.BottomDrawer;
 
 
 public class LoginFragment extends BaseFragment {
 
     private FragmentLoginBinding binding;
     private LoginViewModel loginViewModel;
+    private BottomDrawer bottomDrawer;
 
 
     @Override
@@ -40,6 +43,8 @@ public class LoginFragment extends BaseFragment {
         toolBarInfo.setIsVisible(true);
         toolBarInfo.setTitle("Login Main");
 
+        bottomDrawer = new BottomDrawer(getActivity());
+
         return root;
     }
 
@@ -48,12 +53,17 @@ public class LoginFragment extends BaseFragment {
     protected void setObserver() {
         super.setObserver();
         loginViewModel.getLoginResultLiveData().observe(this, (LoginResult loginResult) -> {
-            if(loginResult.getStatus()){
-                NavDirections action = LoginFragmentDirections.actionLoginFragmentToHomeNavGraph();
-                Navigation.findNavController(binding.getRoot()).navigate(action);
-            }else{
+            if (loginResult.getStatus()) {
+                bottomDrawer.show(loginResult.getWareHouseList());
+            } else {
                 binding.usernameTextHint.setError(loginResult.getMessage());
             }
+        });
+
+        bottomDrawer.setOnChoiceWarehouseListener(warehouse -> {
+            UserInfoStore.getUser().setCurrWh(warehouse.getNameNo());
+            NavDirections action = LoginFragmentDirections.actionLoginFragmentToHomeNavGraph();
+            Navigation.findNavController(binding.getRoot()).navigate(action);
         });
     }
 
