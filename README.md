@@ -31,3 +31,6 @@ https://blog.csdn.net/plokmju88/article/details/103355025
 
 # 图片加载框架对比
 https://www.pianshen.com/article/2223991782/
+
+# 动画基础知识
+https://blog.csdn.net/hust_twj/article/details/78587989
