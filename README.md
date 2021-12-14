@@ -41,3 +41,6 @@ https://xyang.blog.csdn.net/article/details/94383113
 https://www.jb51.net/article/112267.htm
 
 https://www.jianshu.com/p/9f767457a60e
+
+# 设计原则 SOLID
+https://www.jianshu.com/p/145efeabcd06
