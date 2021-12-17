@@ -13,6 +13,8 @@ https://zhuanlan.zhihu.com/p/20687178
 
 https://zhuanlan.zhihu.com/p/41342507
 
+https://www.jianshu.com/p/a9ebf730cd08
+
 # Android内存泄漏
 https://www.jianshu.com/p/c59e68c9f581?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 
