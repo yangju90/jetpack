@@ -17,6 +17,8 @@ https://www.jianshu.com/p/a9ebf730cd08
 
 https://blog.csdn.net/zhaoyanjun6/article/details/76443347
 
+https://zhuanlan.zhihu.com/p/24473022
+
 # Android内存泄漏
 https://www.jianshu.com/p/c59e68c9f581?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 
