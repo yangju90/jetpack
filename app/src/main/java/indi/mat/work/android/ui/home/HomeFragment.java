@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 
 import indi.mat.work.android.base.BaseFragment;
 import indi.mat.work.android.databinding.FragmentHomeBinding;
+import indi.mat.work.android.model.bean.VersionInfo;
 import indi.mat.work.android.net.base.NetStatusModel;
+import indi.mat.work.android.utilities.UpdateManager;
 
 
 public class HomeFragment extends BaseFragment {
@@ -37,5 +39,16 @@ public class HomeFragment extends BaseFragment {
         binding.button.setOnClickListener((View v) -> {
             NetStatusModel.getInstance().loginOut();
         }) ;
+
+        binding.update.setOnClickListener((View v) -> {
+            UpdateManager updateManager = new UpdateManager(getActivity());
+            VersionInfo version = new VersionInfo();
+            version.setStatus(true);
+            version.setVersionMsg("更新apk文件");
+            version.setVersionLink("https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz");
+
+            updateManager.checkUpdateInfo(version);
+        });
+
     }
 }

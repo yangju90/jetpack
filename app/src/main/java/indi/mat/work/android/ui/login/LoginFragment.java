@@ -59,12 +59,6 @@ public class LoginFragment extends BaseFragment {
                 binding.usernameTextHint.setError(loginResult.getMessage());
             }
         });
-
-        bottomDrawer.setOnChoiceWarehouseListener(warehouse -> {
-            UserInfoStore.getUser().setCurrWh(warehouse.getNameNo());
-            NavDirections action = LoginFragmentDirections.actionLoginFragmentToHomeNavGraph();
-            Navigation.findNavController(binding.getRoot()).navigate(action);
-        });
     }
 
     @Override
@@ -74,6 +68,12 @@ public class LoginFragment extends BaseFragment {
                 binding.usernameTextHint.setError(null);
             }
             return false;
+        });
+
+        bottomDrawer.setOnChoiceWarehouseListener(warehouse -> {
+            UserInfoStore.getUser().setCurrWh(warehouse.getNameNo());
+            NavDirections action = LoginFragmentDirections.actionLoginFragmentToHomeNavGraph();
+            Navigation.findNavController(binding.getRoot()).navigate(action);
         });
     }
 

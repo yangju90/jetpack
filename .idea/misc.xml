@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/work/android/jectback/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.38229166666666664" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/bg_border.xml" value="0.1" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/bg_btn_cancel.xml" value="0.21614583333333334" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/bg_item_gridview_added.xml" value="0.1" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.23229166666666667" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_baseline_inbox_24.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
@@ -15,6 +18,7 @@
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.38229166666666664" />
+        <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/layer_list_update_progress_bar.xml" value="0.21614583333333334" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/round_corners_bg.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/drawable/side_nav_bar.xml" value="0.38229166666666664" />
         <entry key="..\:/work/android/jetpack/app/src/main/res/layout/activity_home.xml" value="0.36614583333333334" />

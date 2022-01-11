@@ -16,7 +16,6 @@ public class ToastHolder {
         }else{
             toast.cancel();
             toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
-
             toast.setDuration(Toast.LENGTH_SHORT);
         }
         toast.show();

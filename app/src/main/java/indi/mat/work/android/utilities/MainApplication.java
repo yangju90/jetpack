@@ -30,6 +30,7 @@ public class MainApplication extends Application {
         instance = this;
         this.setAppContext(getApplicationContext());
 
+        AppVersion.init(appContext);
         UserInfoStore.init();
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);

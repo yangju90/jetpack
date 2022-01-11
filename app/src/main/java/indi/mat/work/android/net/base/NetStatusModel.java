@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import indi.mat.work.android.utilities.AppStatus;
 
+
 public class NetStatusModel {
 
     private MutableLiveData<AppStatus> appActionStatus;

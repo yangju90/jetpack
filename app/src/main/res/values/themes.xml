@@ -17,7 +17,6 @@
         <item name="colorOnSecondary">#FEEAE6</item>
 
 
-
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
@@ -59,7 +58,6 @@
     </style>
 
 
-
     <style name="Widget.Login.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextAppearance.Login.TextInputLayout.HintText</item>
         <!-- 错误输入时提示字符及边框颜色 -->
@@ -99,5 +97,25 @@
         <item name="colorAccent">#FD9725</item>
         <item name="colorOnPrimary">#FFFFFF</item>
         <item name="colorError">#FD9725</item>
+    </style>
+
+
+
+    <style name="PromptDialog" parent="android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 遮罩层 -->
+        <item name="android:backgroundDimAmount">0.5</item>
     </style>
 </resources>

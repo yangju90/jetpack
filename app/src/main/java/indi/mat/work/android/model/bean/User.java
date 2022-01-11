@@ -2,16 +2,17 @@ package indi.mat.work.android.model.bean;
 
 import java.util.List;
 
+import indi.mat.work.android.model.base.TokenRefresh;
+
 public class User {
     private String userID;
-
-    private String token;
-    private String refreshToken;
-    private List<String> whList;
-
-    private String displayName;
+    private String shortName;
+    private String fullName;
+    private TokenRefresh tokenRefresh;
     private String currWh;
+    private List<String> whList;
     private String url;
+    private String avatar;
 
     public String getUserID() {
         return userID;
@@ -21,20 +22,28 @@ public class User {
         this.userID = userID;
     }
 
-    public String getToken() {
-        return token;
+    public String getShortName() {
+        return shortName;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
-    public String getRefreshToken() {
-        return refreshToken;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setRefreshToken(String refreshToken) {
-        this.refreshToken = refreshToken;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public TokenRefresh getTokenRefresh() {
+        return tokenRefresh;
+    }
+
+    public void setTokenRefresh(TokenRefresh tokenRefresh) {
+        this.tokenRefresh = tokenRefresh;
     }
 
     public List<String> getWhList() {
@@ -43,14 +52,6 @@ public class User {
 
     public void setWhList(List<String> whList) {
         this.whList = whList;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
     }
 
     public String getCurrWh() {
@@ -68,4 +69,14 @@ public class User {
     public void setUrl(String url) {
         this.url = url;
     }
+
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
 }

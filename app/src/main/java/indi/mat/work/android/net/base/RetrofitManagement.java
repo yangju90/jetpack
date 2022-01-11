@@ -1,5 +1,6 @@
 package indi.mat.work.android.net.base;
 
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -8,14 +9,14 @@ import indi.mat.work.android.BuildConfig;
 import indi.mat.work.android.net.interceptor.HeaderInterceptor;
 import indi.mat.work.android.net.interceptor.HttpLogger;
 import indi.mat.work.android.net.interceptor.UriInterceptor;
+import indi.mat.work.android.net.interceptor.VersionUpdateInterceptor;
 import indi.mat.work.android.utilities.UserInfoStore;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-
 
 public class RetrofitManagement {
 
@@ -43,6 +44,7 @@ public class RetrofitManagement {
                 .connectTimeout(CONNECT_TIMEOUT, TimeUnit.MILLISECONDS)
                 .addInterceptor(new UriInterceptor())
                 .addInterceptor(new HeaderInterceptor())
+                .addInterceptor(new VersionUpdateInterceptor())
                 .retryOnConnectionFailure(true);
 
         if(BuildConfig.DEBUG){
@@ -58,10 +60,9 @@ public class RetrofitManagement {
                 .addConverterFactory(BaseConvertFactory.create())
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
-
 
     public <T> T getService(Class<T> cls){
         return getService(cls, UserInfoStore.getUser().getUrl());

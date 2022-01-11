@@ -2,6 +2,8 @@ package indi.mat.work.android.net.interceptor;
 
 import androidx.annotation.NonNull;
 
+
+
 import java.io.IOException;
 
 import indi.mat.work.android.model.base.TokenRefresh;
@@ -23,13 +25,12 @@ public class HeaderInterceptor implements Interceptor {
         Response response = chain.proceed(builder.build());
 
         if(isTokenExpired(response) && UserInfoStore.isLoginCompleted()){
-            TokenRefreshResponseInfo responseInfo = getNewToken(UserInfoStore.getUser().getToken(), UserInfoStore.getUser().getRefreshToken());
+            TokenRefreshResponseInfo responseInfo = getNewToken(UserInfoStore.getUser().getTokenRefresh().getToken(), UserInfoStore.getUser().getTokenRefresh().getRefreshToken());
             if(!responseInfo.getStatus()) {
                 return response;
             }
 
-            UserInfoStore.getUser().setToken(responseInfo.getData().getToken());
-            UserInfoStore.getUser().setRefreshToken(responseInfo.getData().getRefreshToken());
+            UserInfoStore.getUser().setTokenRefresh(responseInfo.getData());
 
             UserInfoStore.saveAccount();
 
@@ -51,10 +52,11 @@ public class HeaderInterceptor implements Interceptor {
         builder.addHeader("Accept-Encoding", "gzip")
                 .addHeader("Accept", "application/json")
                 .addHeader("Content-Type", "application/json; charset=utf-8");
+
         if(UserInfoStore.isLoginCompleted()){
             builder.addHeader("X-UserID", UserInfoStore.getUser().getUserID());
-            builder.addHeader("X-jwt-token", UserInfoStore.getUser().getToken());
-            builder.addHeader("X-WarehouseNumber", UserInfoStore.getUser().getCurrWh());
+            builder.addHeader("x-neplatform-jwt", UserInfoStore.getUser().getTokenRefresh().getToken());
+            builder.addHeader("x-warehouse-no", UserInfoStore.getUser().getCurrWh());
         }
 
         return builder;
@@ -71,12 +73,19 @@ public class HeaderInterceptor implements Interceptor {
             rResponseInfo = RetrofitManagement.getInstance().getService(LoginService.class).refreshToken(tokenRefresh).execute();
             if(rResponseInfo.code() == 200){
                 ans = rResponseInfo.body();
+            }else if(rResponseInfo.code() == 402){
+                ans = new TokenRefreshResponseInfo();
+                ans.setStatus(false);
+                ans.setStatusCode(ApiCode.CODE_DEMO_12003.getCode());
+                ans.setMessage(ApiCode.CODE_DEMO_12003.getReasonPhrase());
             }
         } catch (IOException e) {
         }
         if(ans == null) {
             ans = new TokenRefreshResponseInfo();
-            ans.setResultCode(ApiCode.REFRESH_TOKEN_ERROR.getCode());
+            ans.setStatus(false);
+            ans.setStatusCode(ApiCode.REFRESH_TOKEN_ERROR.getCode());
+            ans.setMessage(ApiCode.REFRESH_TOKEN_ERROR.getReasonPhrase());
         }
 
         return ans;

@@ -1,5 +1,6 @@
 package indi.mat.work.android.model.base;
 
+import java.util.Date;
 import java.util.List;
 
 public class AccountUser {

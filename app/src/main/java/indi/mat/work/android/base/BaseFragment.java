@@ -16,18 +16,24 @@ import indi.mat.work.android.model.viewmodel.ToolBarInfoViewModel;
 public class BaseFragment extends Fragment {
 
     protected ToolBarInfoViewModel toolBarInfo;
+    private boolean flag;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         toolBarInfo = new ViewModelProvider(getActivity()).get(ToolBarInfoViewModel.class);
+        flag = false;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setListener();
-        setObserver();
+        if (!flag){
+            setObserver();
+            flag = true;
+        }
+
     }
 
     @Override

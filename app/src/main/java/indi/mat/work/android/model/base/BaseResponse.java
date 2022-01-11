@@ -3,7 +3,7 @@ package indi.mat.work.android.model.base;
 public class BaseResponse<T> {
 
     private Boolean status;
-    private Integer resultCode;
+    private Integer statusCode;
     private String message;
 
     private T data;
@@ -16,12 +16,12 @@ public class BaseResponse<T> {
         this.status = status;
     }
 
-    public Integer getResultCode() {
-        return resultCode;
+    public Integer getStatusCode() {
+        return statusCode;
     }
 
-    public void setResultCode(Integer resultCode) {
-        this.resultCode = resultCode;
+    public void setStatusCode(Integer statusCode) {
+        this.statusCode = statusCode;
     }
 
     public String getMessage() {

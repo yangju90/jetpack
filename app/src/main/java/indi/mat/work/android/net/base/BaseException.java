@@ -1,5 +1,6 @@
 package indi.mat.work.android.net.base;
 
+
 import indi.mat.work.android.net.config.ApiCode;
 
 public class BaseException extends RuntimeException {

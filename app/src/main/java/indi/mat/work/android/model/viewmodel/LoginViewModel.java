@@ -31,7 +31,7 @@ public class LoginViewModel extends BaseViewModel {
         loginResult.setStatus(false);
         loginResult.setMessage("");
         this.getLoginResultLiveData().setValue(loginResult);
-        this.loginRepository = LoginRepository.getInstance(this);
+        this.loginRepository = LoginRepository.getInstance();
     }
 
     public MutableLiveData<String> getUsername() {
@@ -59,26 +59,34 @@ public class LoginViewModel extends BaseViewModel {
             loginResult.setMessage("Username must not null.");
             loginResultLiveData.setValue(loginResult);
         }else {
-            loginRepository.login(loginRequestInfo).observe(lifecycleOwner, (AccountUserResponseInfo accountUserResponseInfo) -> {
-                if (accountUserResponseInfo.getStatus()) {
-//                    TokenRefresh tokenRefresh = accountUserResponseInfo.getData();
-                    User user = UserInfoStore.getUser();
-//                    user.setToken(tokenRefresh.getToken());
-//                    user.setRefreshToken(tokenRefresh.getRefreshToken());
-                    user.setUserID(username.getValue());
-                    user.setUrl("https://www.hao123.com/");
-                    List<String> whList = new ArrayList<>();
-                    whList.add("25");
-                    whList.add("30");
-                    user.setWhList(whList);
-                    loginResult.setStatus(true);
-                    loginResult.setWareHouseList(convertWareHouse(user.getWhList()));
-                } else {
-                    loginResult.setStatus(false);
-                    loginResult.setMessage(accountUserResponseInfo.getMessage());
-                }
-                loginResultLiveData.setValue(loginResult);
-            });
+//            loginRepository.login(loginRequestInfo).observe(lifecycleOwner, (AccountUserResponseInfo accountUserResponseInfo) -> {
+//                if (accountUserResponseInfo.getStatus()) {
+//                    User user = UserInfoStore.getUser();
+//                    user.setUserID(username.getValue());
+//                    user.setUrl("https://www.hao123.com/");
+//                    List<String> whList = new ArrayList<>();
+//                    whList.add("25");
+//                    whList.add("30");
+//                    user.setWhList(whList);
+//                    loginResult.setStatus(true);
+//                    loginResult.setWareHouseList(convertWareHouse(user.getWhList()));
+//                } else {
+//                    loginResult.setStatus(false);
+//                    loginResult.setMessage(accountUserResponseInfo.getMessage());
+//                }
+//                loginResultLiveData.setValue(loginResult);
+//            });
+
+            User user = UserInfoStore.getUser();
+            user.setUserID(username.getValue());
+            user.setUrl("https://www.hao123.com/");
+            List<String> whList = new ArrayList<>();
+            whList.add("25");
+            whList.add("30");
+            user.setWhList(whList);
+            loginResult.setStatus(true);
+            loginResult.setWareHouseList(convertWareHouse(user.getWhList()));
+            loginResultLiveData.setValue(loginResult);
         }
 
     }

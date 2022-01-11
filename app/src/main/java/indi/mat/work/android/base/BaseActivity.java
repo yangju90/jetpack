@@ -57,6 +57,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+
     protected void setListener(){
     }
 
@@ -64,7 +65,13 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void startLoading() {
-        progressBar = createLoadingBar(this);
+        if(progressBar != null){
+            if(progressBar.getVisibility() == View.GONE) {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        }else {
+            progressBar = createLoadingBar(this);
+        }
     }
 
     protected void dismissLoading() {
@@ -77,9 +84,8 @@ public class BaseActivity extends AppCompatActivity {
         ProgressBar progressBar = new ProgressBar(this);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.gravity = Gravity.CENTER;
-        layoutParams.bottomMargin=175;
-
         addContentView(progressBar, layoutParams);
+
         return progressBar;
     }
 }
