@@ -16,10 +16,15 @@ android {
     }
 
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        debug {
+            buildConfigField("Integer", "LOG_SHOW", "2")
         }
+
+        release {
+            buildConfigField("Integer", "LOG_SHOW", "5")
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -34,4 +39,11 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation"androidx.room:room-runtime:$room_version"
+    annotationProcessor"androidx.room:room-compiler:$room_version"
+
+    implementation 'com.google.code.gson:gson:2.8.+'
+    implementation "androidx.paging:paging-runtime:3.0.0-alpha07"
+    implementation "androidx.paging:paging-guava:3.0.0-alpha07"
 }
