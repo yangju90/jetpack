@@ -191,7 +191,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 @Override
                 public void run() {
                     try {
-                        URL url = new URL("http://10.16.232.121:8083/api/crash/log");
+                        URL url = new URL("http://localhost:8080/api/crash/log");
                         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                         connection.setRequestMethod("POST");
                         connection.setDoOutput(true);
@@ -268,11 +268,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
 
     /**
-     *
      * @description: 将输入流转换成字符串
-     * @author: bt4v
-     *
-     * @date: 2021年11月15日
      * @param inputStream 输入流
      * @return
      */

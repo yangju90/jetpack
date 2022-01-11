@@ -10,4 +10,4 @@ rootProject.name = "jetpack"
 include ':app'
 include ':network'
 include ':material'
-include ':mvvm'
+include ':behavior-collect'
