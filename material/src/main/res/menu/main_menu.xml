@@ -11,4 +11,10 @@
         android:icon="@drawable/mater_filter"
         android:title="@string/mater_filter_title"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/staggeredProduct"
+        android:icon="@drawable/ic_baseline_flowable_24"
+        android:title="@string/mater_flowable_title"
+        app:showAsAction="always" />
 </menu>

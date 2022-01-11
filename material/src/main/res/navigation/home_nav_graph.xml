@@ -27,4 +27,8 @@
         android:id="@+id/productFragment"
         android:name="indi.mat.work.login.ui.main.ProductFragment"
         android:label="ProductFragment" />
+    <fragment
+        android:id="@+id/straggleProductFragment"
+        android:name="indi.mat.work.login.ui.main.StraggleProductFragment"
+        android:label="StraggleProductFragment" />
 </navigation>

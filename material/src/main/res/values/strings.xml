@@ -10,6 +10,7 @@
 
 
     <string name="mater_filter_title">Filter</string>
+    <string name="mater_flowable_title">Flowable</string>
     <string name="mater_search_title">Search</string>
     <string name="mater_product_title">Title</string>
     <string name="mater_product_description">Secondary text</string>

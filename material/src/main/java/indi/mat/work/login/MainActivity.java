@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity {
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager().findFragmentById(binding.fragmentContainerView.getId());
         navController = navHostFragment.getNavController();
-        appBarConfiguration = new AppBarConfiguration.Builder(R.id.homeFragment, R.id.productFragment).setOpenableLayout(binding.drawerLayout).build();
+        appBarConfiguration = new AppBarConfiguration.Builder(R.id.homeFragment, R.id.productFragment, R.id.straggleProductFragment).setOpenableLayout(binding.drawerLayout).build();
         NavigationUI.setupWithNavController(binding.appBar, navController, appBarConfiguration);
         System.out.println("MainActivity  :  OnCreate");
     }
@@ -71,6 +71,9 @@ public class MainActivity extends BaseActivity {
                 case R.id.product:
                     navController.navigate(R.id.productFragment, null, navOptions);
                     break;
+                case R.id.staggeredProduct:
+                    navController.navigate(R.id.straggleProductFragment, null, navOptions);
+                    break;
                 default:
             }
             return false;
@@ -85,6 +88,10 @@ public class MainActivity extends BaseActivity {
                     break;
                 case R.id.product:
                     navController.navigate(R.id.productFragment, null, navOptions);
+                    binding.drawerLayout.closeDrawer(GravityCompat.START);
+                    break;
+                case R.id.staggeredProduct:
+                    navController.navigate(R.id.straggleProductFragment, null, navOptions);
                     binding.drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                 default:
