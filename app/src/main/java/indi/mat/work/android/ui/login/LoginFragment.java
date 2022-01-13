@@ -16,6 +16,7 @@ import indi.mat.work.android.base.LViewModelProviders;
 import indi.mat.work.android.databinding.FragmentLoginBinding;
 import indi.mat.work.android.model.bean.LoginResult;
 import indi.mat.work.android.model.viewmodel.LoginViewModel;
+import indi.mat.work.android.utilities.KeyWordsUtil;
 import indi.mat.work.android.utilities.UserInfoStore;
 import indi.mat.work.android.widget.BottomDrawer;
 
@@ -45,6 +46,8 @@ public class LoginFragment extends BaseFragment {
 
         bottomDrawer = new BottomDrawer(getActivity());
         binding.usernameEditText.requestFocus();
+        binding.buttonLogin.setFocusable(false);
+        KeyWordsUtil.closeKeyBoard(binding.usernameEditText, getActivity());
 
         return root;
     }
@@ -71,6 +74,8 @@ public class LoginFragment extends BaseFragment {
             if (isUserNameValid(loginViewModel.getUsername().getValue())) {
                 binding.usernameTextHint.setError(null);
             }
+
+            KeyWordsUtil.showSoftInputFromWindow(binding.usernameEditText);
             return false;
         });
 
