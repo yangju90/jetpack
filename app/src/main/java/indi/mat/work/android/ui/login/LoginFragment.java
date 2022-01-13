@@ -44,6 +44,7 @@ public class LoginFragment extends BaseFragment {
         toolBarInfo.setTitle("Login Main");
 
         bottomDrawer = new BottomDrawer(getActivity());
+        binding.usernameEditText.requestFocus();
 
         return root;
     }
@@ -64,6 +65,9 @@ public class LoginFragment extends BaseFragment {
     @Override
     public void setListener() {
         binding.usernameEditText.setOnKeyListener((View view, int i, KeyEvent keyEvent) -> {
+            if(keyEvent != null && keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN){
+                loginViewModel.login();
+            }
             if (isUserNameValid(loginViewModel.getUsername().getValue())) {
                 binding.usernameTextHint.setError(null);
             }
