@@ -1,11 +1,14 @@
 package indi.mat.work.android.ui.login;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
@@ -67,16 +70,31 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     public void setListener() {
-        binding.usernameEditText.setOnKeyListener((View view, int i, KeyEvent keyEvent) -> {
+        binding.usernameEditText.setOnEditorActionListener((TextView view, int i, KeyEvent keyEvent) -> {
             if(keyEvent != null && keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN){
                 loginViewModel.login();
             }
-            if (isUserNameValid(loginViewModel.getUsername().getValue())) {
-                binding.usernameTextHint.setError(null);
-            }
-
             KeyWordsUtil.showSoftInputFromWindow(binding.usernameEditText);
             return false;
+        });
+
+        binding.usernameEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (isUserNameValid(loginViewModel.getUsername().getValue())) {
+                    binding.usernameTextHint.setError(null);
+                }
+            }
         });
 
         bottomDrawer.setOnChoiceWarehouseListener(warehouse -> {
