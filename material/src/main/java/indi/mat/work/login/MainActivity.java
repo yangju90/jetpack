@@ -10,6 +10,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -130,5 +132,12 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         System.out.println("MainActivity  :  onDestroy");
         super.onDestroy();
+    }
+
+    public static void start(Context context, String charId){
+        Intent intent =new Intent();
+        intent.putExtra("chatId", charId);
+        intent.setClass(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }

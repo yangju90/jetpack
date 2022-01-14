@@ -9,9 +9,11 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import indi.mat.work.login.R;
 import indi.mat.work.login.adapter.ProductCardRecyclerViewAdapter;
+import indi.mat.work.login.adapter.StraggleProductCardRecyclerViewAdapter;
 import indi.mat.work.login.base.BaseFragment;
 import indi.mat.work.login.bean.Product;
 import indi.mat.work.login.databinding.FragmentProductBinding;
@@ -44,8 +46,8 @@ public class StraggleProductFragment extends BaseFragment {
         // Set up the RecyclerView staggered
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false));
-        ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, GridLayoutManager.VERTICAL));
+        StraggleProductCardRecyclerViewAdapter adapter = new StraggleProductCardRecyclerViewAdapter(
                 Product.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.mater_product_grid_spacing);

@@ -59,10 +59,13 @@
         <entry key="..\:/work/android/jetpack/login/src/main/res/layout/material_product_card.xml" value="0.18229166666666666" />
         <entry key="..\:/work/android/jetpack/login/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.26927083333333335" />
         <entry key="..\:/work/android/jetpack/login/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.23489583333333333" />
+        <entry key="..\:/work/android/jetpack/material/src/main/res/drawable/ic_baseline_error_outline_24.xml" value="0.1" />
         <entry key="..\:/work/android/jetpack/material/src/main/res/drawable/ic_baseline_flowable_24.xml" value="0.10277777777777777" />
+        <entry key="..\:/work/android/jetpack/material/src/main/res/layout/activity_product_detail_in_web_view.xml" value="0.505097312326228" />
         <entry key="..\:/work/android/jetpack/material/src/main/res/layout/fragment_login.xml" value="0.1555793991416309" />
         <entry key="..\:/work/android/jetpack/material/src/main/res/layout/fragment_product.xml" value="0.36633663366336633" />
         <entry key="..\:/work/android/jetpack/material/src/main/res/layout/material_product_card.xml" value="0.36614583333333334" />
+        <entry key="..\:/work/android/jetpack/material/src/main/res/layout/staggered_material_product_card.xml" value="0.505097312326228" />
         <entry key="..\:/work/android/jetpack/network/src/main/res/drawable/ic_launcher_background.xml" value="0.24351851851851852" />
       </map>
     </option>

@@ -1,28 +1,38 @@
 package indi.mat.work.login.webview;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.net.http.SslError;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
+import indi.mat.work.login.MainActivity;
 import indi.mat.work.login.R;
+import indi.mat.work.login.databinding.ActivityProductDetailInWebViewBinding;
 
 public class ProductDetailInWebViewActivity extends AppCompatActivity {
 
-    ActivityProductDetailsBinding binding;
+    ActivityProductDetailInWebViewBinding binding;
 
-    String url = "http://10.16.78.61:8699/index.html?prouctId=PRODUCT&token=TOKEN";
+    String url = "http://www.hao123.com";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProductDetailsBinding.inflate(getLayoutInflater());
+        binding = ActivityProductDetailInWebViewBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initWebView();
         String productId = getIntent().getStringExtra("productId");
-        url=url.replace("PRODUCT",productId);
-        if(MaterialApplication.getUser()!=null){
-            url=url.replace("TOKEN", MaterialApplication.getUser().getToken()+" ");
-        }
         binding.webview.loadUrl(url);
         initEvent();
     }
@@ -32,15 +42,15 @@ public class ProductDetailInWebViewActivity extends AppCompatActivity {
     }
 
     private void initWebView() {
-                binding.webview.getSettings().setJavaScriptEnabled(true);
-                binding.webview.getSettings().setDomStorageEnabled(true);
-                binding.webview.getSettings().setLoadWithOverviewMode(true);
-                binding.webview.getSettings().setUseWideViewPort(true);
-                binding.webview.getSettings().setTextZoom(100);
-                binding.webview.setWebChromeClient(new WebChromeClient());
-                binding.webview.setWebViewClient(new WebViewClient() {
-                    @Override
-                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+        binding.webview.getSettings().setJavaScriptEnabled(true);
+        binding.webview.getSettings().setDomStorageEnabled(true);
+        binding.webview.getSettings().setLoadWithOverviewMode(true);
+        binding.webview.getSettings().setUseWideViewPort(true);
+        binding.webview.getSettings().setTextZoom(100);
+        binding.webview.setWebChromeClient(new WebChromeClient());
+        binding.webview.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 
                 Uri uri = request.getUrl();
                 String url = uri.toString();
@@ -48,7 +58,7 @@ public class ProductDetailInWebViewActivity extends AppCompatActivity {
                     String[] strings = url.split("=");
                     if (strings.length == 2) {
                         String chatId = strings[1];
-                        MessageListActivity.start(ProductDetailsActivity.this, chatId);
+                        MainActivity.start(ProductDetailInWebViewActivity.this, chatId);
                         return true;
                     }
                 }
