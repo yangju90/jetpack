@@ -10,6 +10,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+
 import indi.mat.work.android.base.BaseActivity;
 import indi.mat.work.android.base.LViewModelProviders;
 import indi.mat.work.android.databinding.ActivityMainBinding;
@@ -36,11 +39,12 @@ public class MainActivity extends BaseActivity {
 
 
         AppBarConfiguration appBarConfiguration =
-                new AppBarConfiguration.Builder(R.navigation.main_nav_graph).build();
+                new AppBarConfiguration.Builder(R.id.homeFragment).build();
 
         NavigationUI.setupWithNavController(binding.appBar, navController, appBarConfiguration);
 
-        binding.appBarLayout.setVisibility(View.GONE);
+        Glide.with(this).load("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2F50%2Fv2-dd8b96d82d551fa0775f181d2d49e60a_hd.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1644771482&t=2b59fb0db9e5c5e43b96e36eaf9bc974").circleCrop().into(binding.usrIcon);
+
     }
 
     protected void setObserver() {
