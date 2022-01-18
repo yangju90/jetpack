@@ -5,10 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+
 import indi.mat.work.android.base.BaseFragment;
 import indi.mat.work.android.databinding.FragmentHomeBinding;
 import indi.mat.work.android.model.bean.VersionInfo;
 import indi.mat.work.android.net.base.NetStatusModel;
+import indi.mat.work.android.ui.login.LoginFragmentDirections;
 import indi.mat.work.android.utilities.UpdateManager;
 
 
@@ -22,7 +26,6 @@ public class HomeFragment extends BaseFragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         toolBarInfo.setIsVisible(true);
-
         return root;
     }
 
@@ -48,6 +51,12 @@ public class HomeFragment extends BaseFragment {
             version.setVersionLink("https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz");
 
             updateManager.checkUpdateInfo(version);
+        });
+
+
+        binding.room.setOnClickListener((View v) -> {
+            NavDirections action = HomeFragmentDirections.actionHomeFragmentToRoomFragment();
+            Navigation.findNavController(binding.getRoot()).navigate(action);
         });
 
     }

@@ -13,13 +13,14 @@
         tools:context=".ui.home.HomeFragment">
 
         <!-- TODO: Update blank fragment layout -->
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/hello_blank_fragment"
-            tools:layout_editor_absoluteX="167dp"
-            tools:layout_editor_absoluteY="16dp" />
-
+            tools:layout_editor_absoluteX="103dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <Button
             android:id="@+id/update"
@@ -38,6 +39,16 @@
             android:layout_height="wrap_content"
             android:text="Quit"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="52dp"
+            android:text="ROOM"
+            app:layout_constraintBottom_toTopOf="@+id/update"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
