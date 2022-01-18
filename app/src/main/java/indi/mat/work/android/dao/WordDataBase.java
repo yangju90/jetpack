@@ -24,7 +24,7 @@ public abstract class WordDataBase extends BaseDataBase {
     public static synchronized WordDataBase getInstance(Context context){
         if(wordDataBase == null){
             wordDataBase = Room.databaseBuilder(context, WordDataBase.class, Constants.DATABASE_NAME)
-                    .allowMainThreadQueries()
+//                    .allowMainThreadQueries()
                      //.fallbackToDestructiveMigration()    // 现有数据全部清空，数据库迁移
                     .addMigrations(MIGRATION_2_3, MIGRATION_3_4)
                     .build();
